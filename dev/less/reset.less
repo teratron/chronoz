@@ -3,3 +3,291 @@
 //------------------------------------------------------------------------------
 //
 //******************************************************************************
+
+/***************************************
+  Root
+ ***************************************/
+*, :before, :after, ::before, ::after {
+    position: relative;
+    box-sizing: border-box;
+}
+html {
+    font-family: sans-serif;
+    font-size: @unit;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+body {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    min-height:  100%;
+    margin: 0;
+    z-index: 1;
+}
+body:not(.@{fixed}) {
+    padding-top: .0001rem;
+}
+
+/***************************************
+  Commons
+ ***************************************/
+:focus {
+    outline: 0 none;
+}
+img, iframe {
+    border: 0 none;
+}
+script,
+[hidden],
+style[scoped],
+audio:not([controls]) {
+    display: none;
+}
+li {list-style-position: outside;}
+ul, ol {
+    ul {list-style-type: toggle(circle, square, box);}
+    ol {list-style-type: lower-latin;}
+}
+
+/*** Cursor ***/
+a, button, select,
+label[for],
+[type="file"],
+[type="radio"],
+[type="reset"],
+[type="range"],
+[type="image"],
+[type="color"],
+[type="button"],
+[type="submit"],
+[type="checkbox"],
+.@{button}, .event, .events > * {
+    cursor: pointer;
+}
+:disabled,
+.disabled,
+.disabled > *,
+input:disabled,
+select:disabled,
+textarea:disabled,
+[type="radio"]:disabled + label,
+[type="radio"]:disabled + label:before,
+[type="radio"]:disabled + label:hover:before,
+[type="radio"]:disabled + label:focus:before,
+[type="radio"]:disabled:checked + label:before,
+[type="checkbox"]:disabled + label,
+[type="checkbox"]:disabled + label:before,
+[type="checkbox"]:disabled + label:hover:before,
+[type="checkbox"]:disabled + label:focus:before,
+[type="checkbox"]:disabled:checked + label:before {
+    cursor: not-allowed;
+}
+acronym, .help {
+    cursor: help;
+}
+.title {
+    cursor: default;
+}
+
+/*** Overflow ***/
+body:not(.@{fixed}), .scroll {
+    overflow-x:  hidden;
+    overflow-y:  auto;
+}
+.scroll.@{horizontal} {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+body.@{fixed}, .mask {
+    overflow: hidden;
+}
+.@{fixed} .@{screen} {
+    overflow: auto;
+}
+
+/***************************************
+  Typography
+ ***************************************/
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
+h1 {
+    font-size:    5.6rem;
+    line-height:    6rem;
+    letter-spacing: -2px;
+    &.title {
+    }
+}
+h2 {
+    font-size:   45px;
+    line-height: 48px;
+    &.title {
+    }
+}
+h3 {
+    font-size:   34px;
+    line-height: 40px;
+    &.title {
+    }
+}
+h4 {
+    font-size:   24px;
+    &.title {
+    }
+}
+h5 {
+    font-size:  20px;
+    font-weight: 500;
+    &.title {
+    }
+}
+h6 {
+    font-size:   15px;
+    font-weight:  500;
+    line-height: 24px;
+    &.title {
+    }
+}
+.subhead {
+    font-size:   15px;
+    font-weight:  500;
+    line-height: 24px;
+    &.title {
+    }
+}
+.title {
+}
+.caption {
+    text-transform: uppercase;
+}
+abbr, code, time {
+    font-size: 1.2rem;
+}
+small, .secondary {
+    font-size: 87.5%;
+}
+sub, sup, .hint {
+    font-size: 75%;
+}
+
+/*** Typography ***/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', 'Raleway', 'Montserrat', sans-serif;
+}
+h1 {
+    font-size: 9.6rem;
+    font-weight: 100;
+    line-height: 1.2;
+    letter-spacing: -.15rem;
+    /*margin: 0 0 3vh;*/
+}
+h2 {
+    font-size: 6rem;
+    font-weight: 100;
+    line-height: 1.2;
+    letter-spacing: -.05rem;
+    /*margin: 0 0 7vh;*/
+}
+h3 {
+    font-size: 4.8rem;
+    font-weight: 300;
+    letter-spacing: normal;
+    line-height: 1.3;
+    /*margin: 0 0 3vh;*/
+}
+h4 {
+    font-size: 3.4rem;
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: .025rem;
+    /*margin: 0 0 2.4vh;*/
+}
+h5 {
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: normal;
+    /*margin: 0 0 2vh;*/
+}
+h6 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: .015rem;
+    /*margin: 0 0 1vh;*/
+}
+.subtitle {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: .015rem;
+}
+.caption {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: .04rem;
+}
+.overline {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: .15rem;
+}
+.button,
+.allcaps,
+.overline {
+    text-transform: uppercase;
+}
+
+/***************************************
+  Text Semantics
+ ***************************************/
+p, .title {
+    margin-bottom: @layout_gap;
+}
+p {
+    text-align: justify;
+    text-indent: @layout_gap;
+}
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+a[target="_blank"]:before {
+    font-size: 90%;
+    content: "\e164\00A0";
+}
+q,
+q:lang(fr),
+q:lang(ru) {quotes: "\00ab" "\00bb";}
+q:lang(en) {quotes: "\201c" "\201d";}
+q q,
+q:lang(de) {quotes: "\201e" "\201c";}
+abbr {
+    font-variant: small-caps;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+code {
+    padding: 0 @unit*.2;
+}
+sub, sup {
+    line-height: 1;
+    vertical-align: baseline;
+}
+sup {
+    top: -.5em;
+}
+sub {
+    bottom: -.25em;
+}
+time {
+    line-height: 1.1;
+    white-space: nowrap;
+}
+time[datetime] {}
