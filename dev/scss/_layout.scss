@@ -4,7 +4,32 @@
 // gap, pad
 //******************************************************************************
 
-
-
-.row {}
-.col {}
+%display-grid {
+    display: grid;
+}
+%display-flex {
+    display: flex;
+}
+.row {
+    @extend %display-grid;
+    grid-auto-flow: row;
+    &.flex {
+        @extend %display-flex;
+        flex-direction: row;
+    }
+}
+.col {
+    @extend %display-flex;
+    flex-direction: column;
+}
+.bar {
+    display: inline-grid;
+    grid-auto-flow: row;
+    align-items: center;
+    .row > & {
+        grid-auto-flow: column;
+    }
+    .col > & {
+        @extend %display-grid;
+    }
+}
