@@ -1,6 +1,6 @@
 # chronoz
 Web Framework
-HTML / CSS / LESS
+HTML / CSS / LESS / SASS
 JavaScript / jQuery
 
 Облегченная версия фреймворка platform
