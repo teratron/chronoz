@@ -63,7 +63,7 @@ label[for],
 [type="button"],
 [type="submit"],
 [type="checkbox"],
-.@{button}, .event, .events > * {
+.button, .event, .events > * {
     cursor: pointer;
 }
 :disabled,
@@ -92,11 +92,11 @@ acronym, .help {
 }
 
 /*** Overflow ***/
-body:not(.@{fixed}), .scroll {
+body:not(.fixed), .scroll {
     overflow-x:  hidden;
     overflow-y:  auto;
 }
-.scroll.@{horizontal} {
+.scroll.horizontal {
     overflow-x: auto;
     overflow-y: hidden;
 }

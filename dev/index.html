@@ -4,13 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chronoz</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton|Nunito:200,300,400,600,700,800,900|Quicksand:300,400,500,700|Roboto:100,300,400,500,700,900|Montserrat:300,400,500,600,700,800|Raleway:100,200,300,400,600,700,800,900">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton|Nunito:200,300,400,600,700,800,900|Quicksand:300,400,500,700|Roboto:100,300,400,500,700,900|Montserrat:300,400,500,600,700,800|Raleway:100,200,300,400,600,700,800,900">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet/less" href="less/chronoz.less">
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+        .list {
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+        .list-item {
+            height: 50px;
+            border: 1px solid #eee;
+            padding: 10px;
+        }
+        .list-item > * {
+            border: 1px solid #eee;
+            padding: 5px;
+        }
+        .list.row > .list-item {
+            height: auto;
+        }
+    </style>
 </head>
 <body>
+    <ul class="list">
+        <li class="list-item">
+            <div class="list-item__head">head</div>
+            <div class="list-item__head">head</div>
+            <div class="list-item__body">body</div>
+            <div class="list-item__foot">foot</div>
+        </li>
+        <li class="list-item">
+            <div class="list-item__head">head</div>
+            <div class="list-item__body">body</div>
+            <div class="list-item__foot">foot</div>
+            <div class="list-item__foot">foot</div>
+        </li>
+        <li class="list-item">
+            <div class="list-item__head">head</div>
+            <div class="list-item__body">body</div>
+            <div class="list-item__body">foot</div>
+            <div class="list-item__foot">foot</div>
+        </li>
+    </ul>
 
+    <ul class="list row">
+        <li class="list-item">
+            <div class="list-item__head">head</div>
+            <div class="list-item__head">head</div>
+            <div class="list-item__body">body</div>
+            <div class="list-item__foot">foot</div>
+        </li>
+        <li class="list-item">
+            <div class="list-item__head">head</div>
+            <div class="list-item__body">body</div>
+            <div class="list-item__foot">foot</div>
+            <div class="list-item__foot">foot</div>
+        </li>
+        <li class="list-item">
+            <div class="list-item__head">head</div>
+            <div class="list-item__body">body</div>
+            <div class="list-item__body">foot</div>
+            <div class="list-item__foot">foot</div>
+        </li>
+    </ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.js"></script>
     <script type="text/javascript" src="js/chronoz.js"></script>
 </body>
 </html>

@@ -10,14 +10,57 @@
 
 
 
-.@{col}, .@{row}, .@{list}, [class*="@{tile}"] {
+/*.col, .row, .list, [class*="tile"] {
     > li {
         list-style-type: none;
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}*/
+
+
+
+//  list
+//      list-item
+//          list-item__head
+//          list-item__body
+//          list-item__foot
+
+
+
+.list {
+    flex-direction: column;
+    &, &-item {
+        display: flex;
+    }
+    &-item {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        list-style-type: none;
+        &__head {
+            /*background-color: blue;*/
+        }
+        &__body {
+            /*background-color: green;*/
+            flex-grow: 1;
+        }
+        &__foot {
+            /*background-color: red;*/
+        }
     }
 }
 
 
+.list.row {
+    flex-direction: row;
+    > .list-item {
+        flex-direction: column;
+    }
+}
 
+/*
 .row,
 .col,
 .grid,
@@ -80,19 +123,19 @@ menu.row, menu.col, menu.list, menu.grid, menu.tile, menu.bar {
     margin-bottom: 0;
 }
 
-//**** Grid Cell ***//
+//!**** Grid Cell ***!//
 .for-cell(@grid);
 .for-cell(@n, @i: 1) when (@i =< @n) {
     .cell-@{i} {
         grid-column: span @i;
     }
     .for-cell(@n, (@i + 1));
-}
+}*/
 
 //*** Responsive ***//
 //@import "responsive.less";
 
-@max-media: 1200px;
+/*@max-media: 1200px;
 @min-media: 360px;
 
 @step: (@max-media - @min-media)/(@grid - 2);
@@ -104,7 +147,8 @@ menu.row, menu.col, menu.list, menu.grid, menu.tile, menu.bar {
             grid-template-columns: repeat(@j, minmax(0, 1fr));
         }
         @cell: ~"cell-@{i}";
-        .@{cell}/*.cell-@{i}, [class*="cell-@{i}__"]*/ {
+        //.cell-@{i}, [class*="cell-@{i}__"] {
+        .@{cell} {
             grid-column: span @j;
         }
         .for-media-cell(@grid);
@@ -118,6 +162,6 @@ menu.row, menu.col, menu.list, menu.grid, menu.tile, menu.bar {
         }
     }
     .for-media(@n, @i - 1);
-}
+}*/
 
 
