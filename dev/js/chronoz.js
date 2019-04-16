@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var body = $('body');
+    let body = $('body');
 
     // Dropdown
     //-------------------------------------------------
@@ -8,8 +8,8 @@ $(document).ready(function() {
         $(this).toggleClass('active');
 
         if ($(this).is('[data-popup-id]')) {
-             id = $('#' + $(this).data('popup-id'));
-            var i = 0, j = 0;
+            let id = $('#' + $(this).data('popup-id'));
+            let i = 0, j = 0;
 
             id.attr('class').split(/\s+/).map(function(cls) {
                 i++;
