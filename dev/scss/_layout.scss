@@ -11,12 +11,8 @@
     display: flex;
 }
 .row {
-    @extend %display-grid;
-    grid-auto-flow: row;
-    &.flex {
-        @extend %display-flex;
-        flex-direction: row;
-    }
+    @extend %display-flex;
+    flex-direction: row;
 }
 .col {
     @extend %display-flex;
@@ -32,4 +28,7 @@
     .col > & {
         @extend %display-grid;
     }
+}
+.cell {
+    width: 100%;
 }
