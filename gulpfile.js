@@ -1,8 +1,8 @@
-//'use strict';
+'use strict';
 
-var gulp         = require('gulp'),              // Подключаем Gulp
+let gulp         = require('gulp'),              // Подключаем Gulp
     sass         = require('gulp-sass'),         // Подключаем Sass пакет,
-    less         = require('gulp-less'),         // Подключаем Less пакет,
+    //less         = require('gulp-less'),         // Подключаем Less пакет,
     cssnano      = require('gulp-cssnano'),      // Подключаем пакет для минификации CSS
     cssmin       = require('gulp-minify-css'),   //
     htmlmin      = require('gulp-htmlmin'),      //
@@ -22,7 +22,7 @@ var gulp         = require('gulp'),              // Подключаем Gulp
     reload       = browsersync.reload;
 
 // Пути
-var path = {
+let path = {
     build: { // Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
         js:   'build/js/',
@@ -50,7 +50,7 @@ var path = {
 };
 
 // Создадим переменную с настройками нашего dev сервера:
-var config = {
+let config = {
     server: {
         baseDir: "./build"
     },
@@ -115,13 +115,13 @@ gulp.task('font:build', function() {
 });
 
 // Очистка кэша (gulp clear)
-gulp.task('clear', function(callback) {
+gulp.task('clear', function() {
     return cache.clearAll();
 });
 
 // Очистка (gulp clean)
 gulp.task('clean', function(callback) {
-    rimraf(path.clean, callback);
+    return rimraf(path.clean, callback);
 });
 
 // Таск с именем «build», который будет запускать все (gulp build)
@@ -239,7 +239,7 @@ gulp.task('img', function() {
 });
 
 /*gulp.task('build', ['clean', 'img', 'less', 'sass', 'scripts'], function() {
-    var buildCss = gulp.src([ // Переносим библиотеки в продакшен
+    let buildCss = gulp.src([ // Переносим библиотеки в продакшен
         //'dev/css/platform.css',
         'dev/css/platform.min.css',
         //'dev/css/theme.css',
@@ -247,16 +247,16 @@ gulp.task('img', function() {
     ])
         .pipe(gulp.dest('build/css'));
 
-    var buildFonts = gulp.src('dev/fonts/!**!/!*') // Переносим шрифты в продакшен
+    let buildFonts = gulp.src('dev/fonts/!**!/!*') // Переносим шрифты в продакшен
         .pipe(gulp.dest('build/fonts'));
 
-    var buildJs = gulp.src('dev/js/!**!/!*') // Переносим скрипты в продакшен
+    let buildJs = gulp.src('dev/js/!**!/!*') // Переносим скрипты в продакшен
         .pipe(gulp.dest('build/js'));
 
-    var buildHtml = gulp.src('dev/!**!/!*.html') // Переносим HTML в продакшен
+    let buildHtml = gulp.src('dev/!**!/!*.html') // Переносим HTML в продакшен
         .pipe(gulp.dest('build'));
 
-    var buildPhp = gulp.src('dev/!**!/!*.php') // Переносим PHP в продакшен
+    let buildPhp = gulp.src('dev/!**!/!*.php') // Переносим PHP в продакшен
         .pipe(gulp.dest('build'));
 });*/
 
