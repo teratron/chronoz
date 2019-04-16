@@ -18,3 +18,4 @@ $RECYCLE.BIN
 .idea/workspace.xml
 .backup
 node_modules/
+build/
