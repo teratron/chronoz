@@ -12,12 +12,11 @@ npm init
 
      ---> package.json
 
+
 # Gulp
 https://habr.com/post/250569/
 
-npm install --global gulp
-
-npm install gulp -g
+npm install --global gulp   /   npm install gulp -g
 
 npm install gulp-cli -g
 
@@ -29,6 +28,7 @@ npm install gulp-sass --save-dev
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+
 
 # Bower
 http://nano.sapegin.ru/all/bower

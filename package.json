@@ -1,0 +1,26 @@
+{
+  "name": "chronoz",
+  "version": "0.0.1",
+  "description": "Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teratron/chronoz.git"
+  },
+  "keywords": [
+    "keywords"
+  ],
+  "author": "Alexandrov Oleg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teratron/chronoz/issues"
+  },
+  "homepage": "https://github.com/teratron/chronoz#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
