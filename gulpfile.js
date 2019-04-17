@@ -20,7 +20,9 @@ const   gulp         = require('gulp'),              // Подключаем Gul
         browsersync  = require('browser-sync'),      // Подключаем Browser Sync
         reload       = browsersync.reload;
 
-//
+const {phpminify} = require('@cedx/gulp-php-minify');
+
+// Проект
 let project = {
     name: 'chronoz'
 };
@@ -29,13 +31,15 @@ let project = {
 let path = {
     build: { // Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
+        php:  'build/',
         js:   'build/js/',
         css:  'build/css/',
         img:  'build/images/',
         font: 'build/fonts/'
     },
     src: { // Пути откуда брать исходники
-        html: 'dev/*.html',                         // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+        html: 'dev/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+        php:  'dev/**/*.php',
         js:   'dev/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
         scss: 'dev/scss/' + project.name + '.scss', // dev/sass/**/*.sass
         less: 'dev/less/' + project.name + '.less',
@@ -44,6 +48,7 @@ let path = {
     },
     watch: { // Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         html: 'dev/**/*.html',
+        php:  'dev/**/*.php',
         js:   'dev/js/**/*.js',
         scss: 'dev/scss/**/*.scss',
         less: 'dev/less/**/*.less',
@@ -65,11 +70,19 @@ let config = {
     notify: false
 };
 
+// Собираем php
+gulp.task('build:php', function() {
+    return gulp.src(path.src.php)        // Выберем файлы по нужному пути
+        .pipe(phpminify())               // Сожмем
+        .pipe(gulp.dest(path.build.php)) // Выплюнем их в папку build
+        .pipe(reload({stream: true}));   // И перезагрузим наш сервер для обновлений
+});
+
 // Собираем html
 gulp.task('build:html', function() {
     return gulp.src(path.src.html)        // Выберем файлы по нужному пути
         .pipe(rigger())                   // Прогоним через rigger
-        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({collapseWhitespace: true})) // Сожмем
         .pipe(gulp.dest(path.build.html)) // Выплюнем их в папку build
         .pipe(reload({stream: true}));    // И перезагрузим наш сервер для обновлений
 });
@@ -91,7 +104,7 @@ gulp.task('build:scss', function() {
     return gulp.src(path.src.scss)       // Выберем наш scss-файл
         .pipe(sourcemaps.init())         // Инициализируем sourcemap
         .pipe(sass())                    // Скомпилируем
-        .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}))                // Добавим вендорные префиксы
+        .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true})) // Добавим вендорные префиксы
         .pipe(cssnano())                 // Сожмем
         .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
         .pipe(sourcemaps.write('.'))

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/teratron/chronoz#readme",
   "devDependencies": {
+    "@cedx/gulp-php-minify": "^9.3.0",
     "browser-sync": "^2.26.3",
     "del": "^4.1.0",
     "gulp": "^4.0.0",
