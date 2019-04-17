@@ -15,7 +15,8 @@ workspace.xml
 Desktop.ini
 $RECYCLE.BIN
 .DS_Store
+.idea/
 .idea/workspace.xml
-.backup
+.backup/
 node_modules/
 build/

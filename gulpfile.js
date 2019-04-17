@@ -2,12 +2,13 @@
 
 let gulp         = require('gulp'),              // Подключаем Gulp
     sass         = require('gulp-sass'),         // Подключаем Sass пакет,
-    //less         = require('gulp-less'),         // Подключаем Less пакет,
+    less         = require('gulp-less'),         // Подключаем Less пакет,
     cssnano      = require('gulp-cssnano'),      // Подключаем пакет для минификации CSS
     cssmin       = require('gulp-minify-css'),   //
     htmlmin      = require('gulp-htmlmin'),      //
     sourcemaps   = require('gulp-sourcemaps'),   //
     rename       = require('gulp-rename'),       // Подключаем библиотеку для переименования файлов
+    rev          = require('gulp-rev'),
     concat       = require('gulp-concat'),       // Подключаем gulp-concat (для конкатенации файлов/собирает воедино)
     uglify       = require('gulp-uglify'),       // Подключаем gulp-uglify (для сжатия JS)
     imagemin     = require('gulp-imagemin'),     // Подключаем библиотеку для работы с изображениями
@@ -57,12 +58,13 @@ let config = {
     tunnel: true,
     host: 'localhost',
     port: 9000,
-    logPrefix: "Frontend_Devil"
+    logPrefix: "chronoz",
+    notify: false
 };
 
 // Собираем html (gulp html:build)
 gulp.task('html:build', function() {
-    gulp.src(path.src.html)               // Выберем файлы по нужному пути
+    return gulp.src(path.src.html)        // Выберем файлы по нужному пути
         .pipe(rigger())                   // Прогоним через rigger
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(path.build.html)) // Выплюнем их в папку build
@@ -71,7 +73,7 @@ gulp.task('html:build', function() {
 
 // Собираем javascript (gulp js:build)
 gulp.task('js:build', function() {
-    gulp.src(path.src.js)               // Найдем наш js-файл
+    return gulp.src(path.src.js)        // Найдем наш js-файл
         .pipe(rigger())                 // Прогоним через rigger
         .pipe(sourcemaps.init())        // Инициализируем sourcemap
         .pipe(uglify())                 // Сожмем наш js
@@ -82,7 +84,7 @@ gulp.task('js:build', function() {
 
 // Собираем стили (gulp scss:build)
 gulp.task('scss:build', function() {
-    gulp.src(path.src.scss)              // Выберем наш scss-файл
+    return gulp.src(path.src.scss)       // Выберем наш scss-файл
         .pipe(sourcemaps.init())         // Инициализируем sourcemap
         .pipe(sass())                    // Скомпилируем
         .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}))                // Добавим вендорные префиксы
@@ -96,7 +98,7 @@ gulp.task('scss:build', function() {
 
 // Собираем картинки (gulp image:build)
 gulp.task('image:build', function() {
-    gulp.src(path.src.img)               // Выберем наши картинки
+    return gulp.src(path.src.img)        // Выберем наши картинки
         .pipe(imagemin({                 // Сожмем их
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
@@ -109,7 +111,7 @@ gulp.task('image:build', function() {
 
 // Шрифты (gulp font:build)
 gulp.task('font:build', function() {
-    gulp.src(path.src.font)
+    return gulp.src(path.src.font)
         .pipe(gulp.dest(path.build.font))
         .pipe(reload({stream: true}));   // И перезагрузим сервер
 });
@@ -143,19 +145,19 @@ gulp.task('webserver', function() {
 // Для этого напишет такой таск:
 gulp.task('watch', function() {
     watch([path.watch.html], function(event, callback) {
-        gulp.start('html:build');
+        return gulp.start('html:build');
     });
     watch([path.watch.js], function(event, callback) {
-        gulp.start('js:build');
+        return gulp.start('js:build');
     });
     watch([path.watch.scss], function(event, callback) {
-        gulp.start('scss:build');
+        return gulp.start('scss:build');
     });
     watch([path.watch.img], function(event, callback) {
-        gulp.start('image:build');
+        return gulp.start('image:build');
     });
     watch([path.watch.font], function(event, callback) {
-        gulp.start('font:build');
+        return gulp.start('font:build');
     });
 });
 
@@ -229,12 +231,12 @@ gulp.task('clean', function() {
 gulp.task('img', function() {
     return gulp.src('dev/images/**/*') // Берем все изображения из dev
         .pipe(cache(imagemin({ // С кешированием
-            // .pipe(imagemin({ // Сжимаем изображения без кеширования
+            //.pipe(imagemin({ // Сжимаем изображения без кеширования
             interlaced: true,
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
-        }))/**/)
+        })))
         .pipe(gulp.dest('build/images')); // Выгружаем на продакшен
 });
 
