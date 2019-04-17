@@ -12,9 +12,7 @@ $(document).ready(function() {
             id.attr('class').split(/\s+/).map(function(cls) {
                 i++;
                 switch(cls) {
-                    case 'show':
-                        id.removeClass('show');
-                        break;
+                    case 'show': id.removeClass('show'); break;
                     default: j++; break;
                 }
             });

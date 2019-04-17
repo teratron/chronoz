@@ -20,26 +20,26 @@ const   gulp         = require('gulp'),              // Подключаем Gul
         browsersync  = require('browser-sync'),      // Подключаем Browser Sync
         reload       = browsersync.reload;
 
-const {phpminify} = require('@cedx/gulp-php-minify');
+const phpminify = require('@cedx/gulp-php-minify');
 
-// Проект
+// Настройки проекта
 let project = {
     name: 'chronoz'
 };
 
-// Пути
+// Пути проекта
 let path = {
     build: { // Тут мы укажем куда складывать готовые после сборки файлы
-        html: 'build/',
         php:  'build/',
+        html: 'build/',
         js:   'build/js/',
         css:  'build/css/',
         img:  'build/images/',
         font: 'build/fonts/'
     },
     src: { // Пути откуда брать исходники
-        html: 'dev/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         php:  'dev/**/*.php',
+        html: 'dev/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         js:   'dev/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
         scss: 'dev/scss/' + project.name + '.scss', // dev/sass/**/*.sass
         less: 'dev/less/' + project.name + '.less',
@@ -47,8 +47,8 @@ let path = {
         font: 'dev/fonts/**/*.*'
     },
     watch: { // Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        html: 'dev/**/*.html',
         php:  'dev/**/*.php',
+        html: 'dev/**/*.html',
         js:   'dev/js/**/*.js',
         scss: 'dev/scss/**/*.scss',
         less: 'dev/less/**/*.less',
@@ -63,16 +63,16 @@ let config = {
     server: {
         baseDir: path.base
     },
-    tunnel: true,
-    host: 'localhost',
-    port: 9000,
+    host:      'localhost',
+    port:      9000,
     logPrefix: project.name,
-    notify: false
+    tunnel:    true,
+    notify:    false
 };
 
 // Собираем php
 gulp.task('build:php', function() {
-    return gulp.src(path.src.php)        // Выберем файлы по нужному пути
+    return gulp.src(path.src.php, {read: false})        // Выберем файлы по нужному пути
         .pipe(phpminify())               // Сожмем
         .pipe(gulp.dest(path.build.php)) // Выплюнем их в папку build
         .pipe(reload({stream: true}));   // И перезагрузим наш сервер для обновлений
@@ -144,15 +144,16 @@ gulp.task('clean', function() {
 
 // Таск с именем «build», который буsдет запускать все (gulp build)
 //gulp.task('build', ['html:build', 'js:build', 'scss:build', 'image:build', 'font:build']);
-gulp.task('build', gulp.parallel('clean', 'build:html', 'build:js', 'build:scss', 'build:image', 'build:font'));
+gulp.task('build', gulp.parallel(/*'clean', 'build:php',*/ 'build:html', 'build:js', 'build:scss', 'build:image', 'build:font'));
 
 
-/*
+
 // Веб сервер (gulp webserver)
 gulp.task('webserver', function() {
     browsersync(config);
 });
 
+ /*
 // Изменения файлов (gulp watch)
 // Чтобы не лазить все время в консоль давайте попросим gulp каждый раз при изменении какого то файла запускать нужную задачу.
 // Для этого напишет такой таск:
