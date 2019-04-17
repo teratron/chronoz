@@ -2,6 +2,11 @@
 
 # NodeJS
 
+rm -rf node_modules/
+npm cache clean --force
+//npm install --dev
+//npm update --dev
+sudo npm update -g npm
 npm install
 
 # to update
