@@ -38,6 +38,7 @@ let path = {
         font: 'build/fonts/'
     },
     src: { // Пути откуда брать исходники
+        dev:  'dev/',
         php:  'dev/**/*.php',
         html: 'dev/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         js:   'dev/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
@@ -72,10 +73,10 @@ let config = {
 
 // Собираем php
 gulp.task('build:php', function() {
-    return gulp.src(path.src.php, {read: false})        // Выберем файлы по нужному пути
-        .pipe(phpminify())               // Сожмем
-        .pipe(gulp.dest(path.build.php)) // Выплюнем их в папку build
-        .pipe(reload({stream: true}));   // И перезагрузим наш сервер для обновлений
+    return gulp.src(path.src.php, {read: false}) // Выберем файлы по нужному пути
+        .pipe(phpminify({silent: true}))         // Сожмем
+        .pipe(gulp.dest(path.build.php))         // Выплюнем их в папку build
+        .pipe(reload({stream: true}));           // И перезагрузим наш сервер для обновлений
 });
 
 // Собираем html
@@ -142,9 +143,11 @@ gulp.task('clean', function() {
     return del(path.base);
 });
 
-// Таск с именем «build», который буsдет запускать все (gulp build)
-//gulp.task('build', ['html:build', 'js:build', 'scss:build', 'image:build', 'font:build']);
-gulp.task('build', gulp.parallel(/*'clean', 'build:php',*/ 'build:html', 'build:js', 'build:scss', 'build:image', 'build:font'));
+// Таск с именем «build», который буsдет запускать все
+gulp.task('build', gulp.parallel(/*'clean', 'build:php',*/ 'build:html', 'build:js', 'build:scss', 'build:image', 'build:font', function() {
+    return gulp.src(path.src.dev + '*.ico')        // Выберем файлы по нужному пути
+        .pipe(gulp.dest(path.base)); // Выплюнем их в папку build
+}));
 
 
 
