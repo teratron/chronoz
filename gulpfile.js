@@ -44,6 +44,7 @@ let path = {
         js:   src + '/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
         scss: src + '/scss/' + project.name + '.scss', // dev/sass/**/*.sass
         less: src + '/less/' + project.name + '.less',
+        css:  src + '/css/',
         img:  src + '/images/**/*.*',                  // Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         font: src + '/fonts/**/*.*'
     },
@@ -51,6 +52,7 @@ let path = {
         php:  src + '/**/*.php',
         html: src + '/**/*.html',
         js:   src + '/js/**/*.js',
+        css:  src + '/css/**/*.css',
         scss: src + '/scss/**/*.scss',
         less: src + '/less/**/*.less',
         img:  src + '/images/**/*.*',
@@ -65,7 +67,7 @@ let config = {
     },
     host:      'localhost',
     port:      9000,
-    logPrefix: project.name + '_',
+    logPrefix: project.name,
     tunnel:    true,
     notify:    false
 };
@@ -100,7 +102,16 @@ gulp.task('build:js', function() {
 });
 
 // Собираем стили
-gulp.task('build:scss', function() {
+gulp.task('scss:dev', function() {
+    return gulp.src(path.dev.scss)       // Выберем наш scss-файл
+        .pipe(sass())                    // Скомпилируем
+        .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true})) // Добавим вендорные префиксы
+        .pipe(cssnano())                 // Сожмем
+        .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
+        .pipe(gulp.dest(path.dev.css)); // И в build
+});
+
+gulp.task('scss:build', function() {
     return gulp.src(path.dev.scss)       // Выберем наш scss-файл
         .pipe(sourcemaps.init())         // Инициализируем sourcemap
         .pipe(sass())                    // Скомпилируем
@@ -108,8 +119,7 @@ gulp.task('build:scss', function() {
         .pipe(cssnano())                 // Сожмем
         .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(path.build.css)) // И в build
-        .pipe(reload({stream: true}));   // И перезагрузим сервер
+        .pipe(gulp.dest(path.build.css));// И в build
 });
 
 // Собираем картинки
@@ -143,9 +153,10 @@ gulp.task('clean', function() {
 });
 
 // Таск с именем «build», который буsдет запускать все
-gulp.task('build', gulp.parallel(/*'clean', 'build:php',*/ 'build:html', 'build:js', 'build:scss', 'build:image', 'build:font', function() {
-    return gulp.src(src + '*.ico') // Выберем файлы по нужному пути
-        .pipe(gulp.dest(dest));    // Выплюнем их в папку build
+gulp.task('build', gulp.parallel('build:php', 'build:html', 'build:js', 'scss:build', 'build:image', 'build:font', function() {
+    return gulp.src(src + '/*.ico')     // Выберем файлы по нужному пути
+        .pipe(gulp.dest(dest))         // Выплюнем их в папку build
+        .pipe(reload({stream: true})); // И перезагрузим сервер
 }));
 
 // Веб сервер
