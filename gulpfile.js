@@ -94,7 +94,7 @@ gulp.task('js:build', function() {
     return gulp.src(path.dev.js)        // Найдем наш js-файл
         .pipe(rigger())                 // Прогоним через rigger
         .pipe(sourcemaps.init())        // Инициализируем sourcemap
-        //.pipe(uglify())                 // Сожмем наш js
+        .pipe(uglify())                 // Сожмем наш js
         .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
         .pipe(sourcemaps.write('.'))    // Пропишем карты
         .pipe(gulp.dest(path.build.js)) // Выплюнем готовый файл в build
@@ -110,6 +110,7 @@ gulp.task('scss:dev', function() {
         .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
         .pipe(gulp.dest(path.dev.css)); // И в build
 });
+
 gulp.task('scss:build', function() {
     return gulp.src(path.dev.scss)       // Выберем наш scss-файл
         .pipe(sourcemaps.init())         // Инициализируем sourcemap
