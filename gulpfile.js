@@ -73,7 +73,7 @@ let config = {
 };
 
 // Собираем php
-gulp.task('build:php', function() {
+gulp.task('php:build', function() {
     return gulp.src(path.dev.php, {read: false}) // Выберем файлы по нужному пути
         .pipe(phpMinify({silent: true}))         // Сожмем
         .pipe(gulp.dest(dest))                   // Выплюнем их в папку build
@@ -81,7 +81,7 @@ gulp.task('build:php', function() {
 });
 
 // Собираем html
-gulp.task('build:html', function() {
+gulp.task('html:build', function() {
     return gulp.src([path.dev.html, '!' + src + '/scss/**/*.html', '!' + src + '/less/**/*.html']) // Выберем файлы по нужному пути
         .pipe(rigger())                   // Прогоним через rigger
         .pipe(htmlmin({collapseWhitespace: true})) // Сожмем
@@ -90,7 +90,7 @@ gulp.task('build:html', function() {
 });
 
 // Собираем javascript
-gulp.task('build:js', function() {
+gulp.task('js:build', function() {
     return gulp.src(path.dev.js)        // Найдем наш js-файл
         .pipe(rigger())                 // Прогоним через rigger
         .pipe(sourcemaps.init())        // Инициализируем sourcemap
@@ -123,7 +123,7 @@ gulp.task('scss:build', function() {
 });
 
 // Собираем картинки
-gulp.task('build:image', function() {
+gulp.task('image:build', function() {
     return gulp.src(path.dev.img)        // Выберем наши картинки
         .pipe(imagemin({                 // Сожмем их
             progressive: true,
@@ -136,7 +136,7 @@ gulp.task('build:image', function() {
 });
 
 // Шрифты
-gulp.task('build:font', function() {
+gulp.task('font:build', function() {
     return gulp.src(path.dev.font)
         .pipe(gulp.dest(path.build.font))
         .pipe(reload({stream: true}));   // И перезагрузим сервер
@@ -153,8 +153,8 @@ gulp.task('clean', function() {
 });
 
 // Таск с именем «build», который буsдет запускать все
-gulp.task('build', gulp.parallel('build:php', 'build:html', 'build:js', 'scss:build', 'build:image', 'build:font', function() {
-    return gulp.src(src + '/*.ico')     // Выберем файлы по нужному пути
+gulp.task('build', gulp.parallel('php:build', 'html:build', 'js:build', 'scss:build', 'image:build', 'font:build', function() {
+    return gulp.src(src + '/*.ico')    // Выберем файлы по нужному пути
         .pipe(gulp.dest(dest))         // Выплюнем их в папку build
         .pipe(reload({stream: true})); // И перезагрузим сервер
 }));
@@ -164,7 +164,7 @@ gulp.task('webserver', function() {
     browserSync(config);
 });
 
- /*
+/*
 // Изменения файлов (gulp watch)
 // Чтобы не лазить все время в консоль давайте попросим gulp каждый раз при изменении какого то файла запускать нужную задачу.
 // Для этого напишет такой таск:
