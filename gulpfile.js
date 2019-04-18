@@ -17,80 +17,79 @@ const   gulp         = require('gulp'),              // Подключаем Gul
         del          = require('del'),               // Подключаем библиотеку для удаления файлов и папок
         cache        = require('gulp-cache'),        // Подключаем библиотеку кеширования
         watch        = require('gulp-watch'),
-        browsersync  = require('browser-sync'),      // Подключаем Browser Sync
-        reload       = browsersync.reload;
+        browserSync  = require('browser-sync'),      // Подключаем Browser Sync
+        reload       = browserSync.reload;
 
-const phpminify = require('@cedx/gulp-php-minify');
+const {phpMinify} = require('@cedx/gulp-php-minify');
 
 // Настройки проекта
 let project = {
-    name: 'chronoz'
+    name: 'chronoz',
+    ver:  '0.0.1'
 };
 
 // Пути проекта
+let dest = 'build';
+let src  = 'dev';
 let path = {
     build: { // Тут мы укажем куда складывать готовые после сборки файлы
-        php:  'build/',
-        html: 'build/',
-        js:   'build/js/',
-        css:  'build/css/',
-        img:  'build/images/',
-        font: 'build/fonts/'
+        js:   dest + '/js/',
+        css:  dest + '/css/',
+        img:  dest + '/images/',
+        font: dest + '/fonts/'
     },
-    src: { // Пути откуда брать исходники
-        dev:  'dev/',
-        php:  'dev/**/*.php',
-        html: 'dev/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-        js:   'dev/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
-        scss: 'dev/scss/' + project.name + '.scss', // dev/sass/**/*.sass
-        less: 'dev/less/' + project.name + '.less',
-        img:  'dev/images/**/*.*',                  // Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
-        font: 'dev/fonts/**/*.*'
+    dev: { // Пути откуда брать исходники
+        php:  src + '/**/*.php',
+        html: src + '/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+        js:   src + '/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
+        scss: src + '/scss/' + project.name + '.scss', // dev/sass/**/*.sass
+        less: src + '/less/' + project.name + '.less',
+        img:  src + '/images/**/*.*',                  // Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+        font: src + '/fonts/**/*.*'
     },
     watch: { // Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        php:  'dev/**/*.php',
-        html: 'dev/**/*.html',
-        js:   'dev/js/**/*.js',
-        scss: 'dev/scss/**/*.scss',
-        less: 'dev/less/**/*.less',
-        img:  'dev/images/**/*.*',
-        font: 'dev/fonts/**/*.*'
-    },
-    base: './build'
+        php:  src + '/**/*.php',
+        html: src + '/**/*.html',
+        js:   src + '/js/**/*.js',
+        scss: src + '/scss/**/*.scss',
+        less: src + '/less/**/*.less',
+        img:  src + '/images/**/*.*',
+        font: src + '/fonts/**/*.*'
+    }
 };
 
 // Создадим переменную с настройками нашего dev сервера:
 let config = {
     server: {
-        baseDir: path.base
+        baseDir: dest
     },
     host:      'localhost',
     port:      9000,
-    logPrefix: project.name,
+    logPrefix: project.name + '_',
     tunnel:    true,
     notify:    false
 };
 
 // Собираем php
 gulp.task('build:php', function() {
-    return gulp.src(path.src.php, {read: false}) // Выберем файлы по нужному пути
-        .pipe(phpminify({silent: true}))         // Сожмем
-        .pipe(gulp.dest(path.build.php))         // Выплюнем их в папку build
+    return gulp.src(path.dev.php, {read: false}) // Выберем файлы по нужному пути
+        .pipe(phpMinify({silent: true}))         // Сожмем
+        .pipe(gulp.dest(dest))                   // Выплюнем их в папку build
         .pipe(reload({stream: true}));           // И перезагрузим наш сервер для обновлений
 });
 
 // Собираем html
 gulp.task('build:html', function() {
-    return gulp.src(path.src.html)        // Выберем файлы по нужному пути
+    return gulp.src([path.dev.html, '!' + src + '/scss/**/*.html', '!' + src + '/less/**/*.html']) // Выберем файлы по нужному пути
         .pipe(rigger())                   // Прогоним через rigger
         .pipe(htmlmin({collapseWhitespace: true})) // Сожмем
-        .pipe(gulp.dest(path.build.html)) // Выплюнем их в папку build
+        .pipe(gulp.dest(dest))            // Выплюнем их в папку build
         .pipe(reload({stream: true}));    // И перезагрузим наш сервер для обновлений
 });
 
 // Собираем javascript
 gulp.task('build:js', function() {
-    return gulp.src(path.src.js)        // Найдем наш js-файл
+    return gulp.src(path.dev.js)        // Найдем наш js-файл
         .pipe(rigger())                 // Прогоним через rigger
         .pipe(sourcemaps.init())        // Инициализируем sourcemap
         //.pipe(uglify())                 // Сожмем наш js
@@ -102,7 +101,7 @@ gulp.task('build:js', function() {
 
 // Собираем стили
 gulp.task('build:scss', function() {
-    return gulp.src(path.src.scss)       // Выберем наш scss-файл
+    return gulp.src(path.dev.scss)       // Выберем наш scss-файл
         .pipe(sourcemaps.init())         // Инициализируем sourcemap
         .pipe(sass())                    // Скомпилируем
         .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true})) // Добавим вендорные префиксы
@@ -115,7 +114,7 @@ gulp.task('build:scss', function() {
 
 // Собираем картинки
 gulp.task('build:image', function() {
-    return gulp.src(path.src.img)        // Выберем наши картинки
+    return gulp.src(path.dev.img)        // Выберем наши картинки
         .pipe(imagemin({                 // Сожмем их
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
@@ -128,7 +127,7 @@ gulp.task('build:image', function() {
 
 // Шрифты
 gulp.task('build:font', function() {
-    return gulp.src(path.src.font)
+    return gulp.src(path.dev.font)
         .pipe(gulp.dest(path.build.font))
         .pipe(reload({stream: true}));   // И перезагрузим сервер
 });
@@ -140,20 +139,18 @@ gulp.task('clear', function() {
 
 // Удаляем папку build
 gulp.task('clean', function() {
-    return del(path.base);
+    return del(dest, {force:true});
 });
 
 // Таск с именем «build», который буsдет запускать все
 gulp.task('build', gulp.parallel(/*'clean', 'build:php',*/ 'build:html', 'build:js', 'build:scss', 'build:image', 'build:font', function() {
-    return gulp.src(path.src.dev + '*.ico')        // Выберем файлы по нужному пути
-        .pipe(gulp.dest(path.base)); // Выплюнем их в папку build
+    return gulp.src(src + '*.ico') // Выберем файлы по нужному пути
+        .pipe(gulp.dest(dest));    // Выплюнем их в папку build
 }));
 
-
-
-// Веб сервер (gulp webserver)
+// Веб сервер
 gulp.task('webserver', function() {
-    browsersync(config);
+    browserSync(config);
 });
 
  /*
@@ -277,7 +274,7 @@ gulp.task('sass', function(){ // Создаем таск Sass
         .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
         .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
         .pipe(gulp.dest('dev/css')) // Выгружаем результата в папку dev/css
-        .pipe(browsersync.reload({stream: true})); // Обновляем CSS на странице при изменении
+        .pipe(browserSync.reload({stream: true})); // Обновляем CSS на странице при изменении
 });
 
 gulp.task('less', function() {
@@ -291,7 +288,7 @@ gulp.task('less', function() {
 
 
 /*gulp.task('browser-sync', function() { // Создаем таск browser-sync
-    browsersync({ // Выполняем browsersync
+    browserSync({ // Выполняем browserSync
         server: { // Определяем параметры сервера
             baseDir: 'build' // Директория для сервера - dev
         },
@@ -304,7 +301,7 @@ gulp.task('less', function() {
         'dev/libs/jquery/build/jquery.min.js', // Берем jQuery
         'dev/libs/magnific-popup/build/jquery.magnific-popup.min.js' // Берем Magnific Popup
     ])
-        .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
+        .pipe(concat('bundle.min.js')) // Собираем их в кучу в новом файле libs.min.js
         .pipe(uglify()) // Сжимаем JS файл
         .pipe(gulp.dest('dev/js')); // Выгружаем в папку dev/js
 });*/
@@ -322,8 +319,8 @@ gulp.task('less', function() {
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
     gulp.watch('dev/less/!**!/!*.less', ['less']); // Наблюдение за less файлами в папке less
     gulp.watch('dev/sass/!**!/!*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
-    gulp.watch('dev/!*.html', browsersync.reload); // Наблюдение за HTML файлами в корне проекта
-    gulp.watch('dev/js/!**!/!*.js', browsersync.reload);   // Наблюдение за JS файлами в папке js
+    gulp.watch('dev/!*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
+    gulp.watch('dev/js/!**!/!*.js', browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 
 gulp.task('clean', function() {
