@@ -164,7 +164,6 @@ gulp.task('webserver', function() {
     browserSync(config);
 });
 
-
 /*
 // Изменения файлов (gulp watch)
 // Чтобы не лазить все время в консоль давайте попросим gulp каждый раз при изменении какого то файла запускать нужную задачу.
@@ -193,8 +192,6 @@ gulp.task('default', gulp.series('clean', 'build', 'webserver', 'watch'));
 */
 
 //----------------------------------------------------
-
-
 
 
 // Load plugins
