@@ -6,8 +6,8 @@ $(document).ready(function() {
         $(this).toggleClass('active');
 
         if ($(this).is('[data-popup-id]')) {
-            var id = $('#' + $(this).data('popup-id'));
-            var i = 0, j = 0;
+            let id = $('#' + $(this).data('popup-id'));
+            let i = 0, j = 0;
 
             id.attr('class').split(/\s+/).map(function(cls) {
                 i++;
@@ -23,8 +23,8 @@ $(document).ready(function() {
     // Modal / Drawer
     //-------------------------------------------------
     $(this).on('click', '[data-modal-id]', function() {
-        var id = $('#' + $(this).data('modal-id'));
-        var i = 0, j = 0;
+        let id = $('#' + $(this).data('modal-id'));
+        let i = 0, j = 0;
 
         id.attr('class').split(/\s+/).map(function(cls) {
             i++;
@@ -71,8 +71,8 @@ $(document).ready(function() {
     $(window).scroll(function() {
         $('[data-hash]').each(function() {
             if ($(this).children().visible(true, 'both')) {
-                var hash = $(this).data('hash');
-                var menu = $('#header').find('.body > menu');
+                let hash = $(this).data('hash');
+                let menu = $('#header').find('.body > menu');
                 menu.children('a[href*="#"]').removeClass('active');
                 menu.children('a[href="#' + hash + '"]').addClass('active');
             }

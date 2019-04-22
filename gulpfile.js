@@ -3,6 +3,7 @@
 const   gulp         = require('gulp'),              // Подключаем Gulp
         sass         = require('gulp-sass'),         // Подключаем Sass пакет,
         less         = require('gulp-less'),         // Подключаем Less пакет,
+        babel        = require('gulp-babel'),
         postcss      = require('gulp-postcss'),
         cssnano      = require('gulp-cssnano'),      // Подключаем пакет для минификации CSS
         prefixer     = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
@@ -90,8 +91,9 @@ gulp.task('html:build', function() {
 });
 
 // Собираем javascript
-gulp.task('js:build', function() {
+gulp.task('js:build', () => {
     return gulp.src(path.dev.js)        // Найдем наш js-файл
+        .pipe(babel({presets: ['@babel/env']}))
         .pipe(rigger())                 // Прогоним через rigger
         .pipe(sourcemaps.init())        // Инициализируем sourcemap
         .pipe(uglify())                 // Сожмем наш js
