@@ -4,9 +4,8 @@ const   gulp         = require('gulp'),              // Подключаем Gul
         sass         = require('gulp-sass'),         // Подключаем Sass пакет,
         less         = require('gulp-less'),         // Подключаем Less пакет,
         babel        = require('gulp-babel'),
-        postcss      = require('gulp-postcss'),
         cssnano      = require('gulp-cssnano'),      // Подключаем пакет для минификации CSS
-        prefixer     = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
+        autoprefixer = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
         htmlmin      = require('gulp-htmlmin'),      //
         sourcemaps   = require('gulp-sourcemaps'),   //
         rename       = require('gulp-rename'),       // Подключаем библиотеку для переименования файлов
@@ -107,7 +106,7 @@ gulp.task('js:build', () => {
 gulp.task('scss:dev', function() {
     return gulp.src(path.dev.scss)       // Выберем наш scss-файл
         .pipe(sass())                    // Скомпилируем
-        .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true})) // Добавим вендорные префиксы
+        .pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'], cascade: true})) // Добавим вендорные префиксы
         .pipe(cssnano())                 // Сожмем
         .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
         .pipe(gulp.dest(path.dev.css)); // И в build
@@ -117,7 +116,7 @@ gulp.task('scss:build', function() {
     return gulp.src(path.dev.scss)       // Выберем наш scss-файл
         .pipe(sourcemaps.init())         // Инициализируем sourcemap
         .pipe(sass())                    // Скомпилируем
-        .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true})) // Добавим вендорные префиксы
+        .pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'], cascade: true})) // Добавим вендорные префиксы
         .pipe(cssnano())                 // Сожмем
         .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
         .pipe(sourcemaps.write('.'))
