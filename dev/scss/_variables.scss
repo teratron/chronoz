@@ -4,10 +4,10 @@
 //
 //******************************************************************************
 
-$version:               '0.0.1';
+$version:               "0.0.1";
 
-$images:                '../images';
-$fonts:                 '../fonts';
+$images:                "../images";
+$fonts:                 "../fonts";
 
 
 $unit: 10px;
@@ -24,3 +24,7 @@ $navbar-width:          260px;
 $navbar-width-min:      80px;
 $sidebar-width:         0;
 $sidebar-width-min:     0;
+
+
+
+$family: unquote("Droid+Sans");
