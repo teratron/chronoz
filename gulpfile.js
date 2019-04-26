@@ -30,7 +30,7 @@ let project = {
 
 // Пути проекта
 let dist = 'build';
-let src  = 'dev';
+let orgn = 'dev';
 let path = {
     build: { // Тут мы укажем куда складывать готовые после сборки файлы
         js:   dist + '/js/',
@@ -39,24 +39,24 @@ let path = {
         font: dist + '/fonts/'
     },
     dev: { // Пути откуда брать исходники
-        php:  src + '/**/*.php',
-        html: src + '/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-        js:   src + '/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
-        scss: src + '/scss/' + project.name + '.scss', // dev/sass/**/*.sass
-        less: src + '/less/' + project.name + '.less',
-        css:  src + '/css/',
-        img:  src + '/images/**/*.*',                  // Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
-        font: src + '/fonts/**/*.*'
+        php:  orgn + '/**/*.php',
+        html: orgn + '/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+        js:   orgn + '/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
+        scss: orgn + '/scss/' + project.name + '.scss', // dev/sass/**/*.sass
+        less: orgn + '/less/' + project.name + '.less',
+        css:  orgn + '/css/',
+        img:  orgn + '/images/**/*.+(png|gif|jpg|svg)', // Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+        font: orgn + '/fonts/**/*.+(ttf|woff|woff2|eot|otf|svg)'
     },
     watch: { // Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        php:  src + '/**/*.php',
-        html: src + '/**/*.html',
-        js:   src + '/js/**/*.js',
-        css:  src + '/css/**/*.css',
-        scss: src + '/scss/**/*.scss',
-        less: src + '/less/**/*.less',
-        img:  src + '/images/**/*.*',
-        font: src + '/fonts/**/*.*'
+        php:  orgn + '/**/*.php',
+        html: orgn + '/**/*.html',
+        js:   orgn + '/js/**/*.js',
+        css:  orgn + '/css/**/*.css',
+        scss: orgn + '/scss/**/*.scss',
+        less: orgn + '/less/**/*.less',
+        img:  orgn + '/images/**/*.*',
+        font: orgn + '/fonts/**/*.*'
     }
 };
 
@@ -82,7 +82,7 @@ gulp.task('php:build', function() {
 
 // Собираем html
 gulp.task('html:build', function() {
-    return gulp.src([path.dev.html, '!' + src + '/scss/**/*.html', '!' + src + '/less/**/*.html']) // Выберем файлы по нужному пути
+    return gulp.src([path.dev.html, '!' + orgn + '/scss/**/*.html', '!' + orgn + '/less/**/*.html']) // Выберем файлы по нужному пути
         .pipe(rigger())                   // Прогоним через rigger
         .pipe(htmlmin({collapseWhitespace: true})) // Сожмем
         .pipe(gulp.dest(dist))            // Выплюнем их в папку build
@@ -126,12 +126,12 @@ gulp.task('scss:build', function() {
 // Собираем картинки
 gulp.task('image:build', function() {
     return gulp.src(path.dev.img)        // Выберем наши картинки
-        .pipe(imagemin({                 // Сожмем их
+        .pipe(cache(imagemin({                 // Сожмем их
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             interlaced: true
-        }))
+        })))
         .pipe(gulp.dest(path.build.img)) // И бросим в build
         .pipe(reload({stream: true}));   // И перезагрузим сервер
 });
@@ -155,7 +155,7 @@ gulp.task('clean', function() {
 
 // Таск с именем «build», который буsдет запускать все
 gulp.task('build', gulp.parallel('php:build', 'html:build', 'js:build', 'scss:build', 'image:build', 'font:build', function() {
-    return gulp.src(src + '/*.ico')    // Выберем файлы по нужному пути
+    return gulp.src(orgn + '/*.ico')    // Выберем файлы по нужному пути
         .pipe(gulp.dest(dist))         // Выплюнем их в папку build
         .pipe(reload({stream: true})); // И перезагрузим сервер
 }));
