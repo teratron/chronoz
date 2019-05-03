@@ -1,26 +1,25 @@
 'use strict';
 
-const   gulp         = require('gulp'),              // Подключаем Gulp
-        sass         = require('gulp-sass'),         // Подключаем Sass пакет,
-        less         = require('gulp-less'),         // Подключаем Less пакет,
-        babel        = require('gulp-babel'),
-        cssnano      = require('gulp-cssnano'),      // Подключаем пакет для минификации CSS
-        autoprefixer = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
-        htmlmin      = require('gulp-htmlmin'),      //
-        sourcemaps   = require('gulp-sourcemaps'),   //
-        rename       = require('gulp-rename'),       // Подключаем библиотеку для переименования файлов
-        concat       = require('gulp-concat'),       // Подключаем gulp-concat (для конкатенации файлов/собирает воедино)
-        uglify       = require('gulp-uglify'),       // Подключаем gulp-uglify (для сжатия JS)
-        imagemin     = require('gulp-imagemin'),     // Подключаем библиотеку для работы с изображениями
-        pngquant     = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
-        rigger       = require('gulp-rigger'),       //= test.html //= test.js /*= includes/test.css */
-        del          = require('del'),               // Подключаем библиотеку для удаления файлов и папок
-        cache        = require('gulp-cache'),        // Подключаем библиотеку кеширования
-        watch        = require('gulp-watch'),
-        browserSync  = require('browser-sync'),      // Подключаем Browser Sync
-        reload       = browserSync.reload;
-
-const {phpMinify} = require('@cedx/gulp-php-minify');
+const gulp         = require('gulp');              // Подключаем Gulp
+const sass         = require('gulp-sass');         // Подключаем Sass пакет,
+const less         = require('gulp-less');         // Подключаем Less пакет,
+const babel        = require('gulp-babel');
+const cssnano      = require('gulp-cssnano');      // Подключаем пакет для минификации CSS
+const autoprefixer = require('gulp-autoprefixer'); // Подключаем библиотеку для автоматического добавления префиксов
+const htmlmin      = require('gulp-htmlmin');      //
+const sourcemaps   = require('gulp-sourcemaps');   //
+const rename       = require('gulp-rename');       // Подключаем библиотеку для переименования файлов
+const concat       = require('gulp-concat');       // Подключаем gulp-concat (для конкатенации файлов/собирает воедино)
+const uglify       = require('gulp-uglify');       // Подключаем gulp-uglify (для сжатия JS)
+const imagemin     = require('gulp-imagemin');     // Подключаем библиотеку для работы с изображениями
+const pngquant     = require('imagemin-pngquant'); // Подключаем библиотеку для работы с png
+const rigger       = require('gulp-rigger');       //= test.html //= test.js /*= includes/test.css */
+const del          = require('del');               // Подключаем библиотеку для удаления файлов и папок
+const cache        = require('gulp-cache');        // Подключаем библиотеку кеширования
+const watch        = require('gulp-watch');
+const browserSync  = require('browser-sync');      // Подключаем Browser Sync
+const reload       = browserSync.reload;
+const {phpMinify}  = require('@cedx/gulp-php-minify');
 
 // Настройки проекта
 let project = {
