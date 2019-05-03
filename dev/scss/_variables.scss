@@ -8,6 +8,7 @@ $version:               "0.0.1";
 
 $images:                "../images";
 $fonts:                 "../fonts";
+$family:                unquote("Droid+Sans|Anton|Nunito:200,300,400,600,700,800,900|Quicksand:300,400,500,700|Roboto:100,300,400,500,700,900|Montserrat:300,400,500,600,700,800|Raleway:100,200,300,400,600,700,800,900");
 
 
 $unit: 10px;
@@ -27,4 +28,4 @@ $sidebar-width-min:     0;
 
 
 
-$family: unquote("Droid+Sans");
+

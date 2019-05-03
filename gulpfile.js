@@ -83,7 +83,16 @@ gulp.task('php:build', function() {
 gulp.task('html:build', function() {
     return gulp.src([path.dev.html, '!' + orgn + '/scss/**/*.html', '!' + orgn + '/less/**/*.html']) // Выберем файлы по нужному пути
         .pipe(rigger())                   // Прогоним через rigger
-        .pipe(htmlmin({collapseWhitespace: true})) // Сожмем
+        .pipe(htmlmin({ // Сожмем
+            collapseWhitespace: true,
+            minifyCSS: true,
+            minifyJS: true,
+            minifyURLs: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+        }))
         .pipe(gulp.dest(dist))            // Выплюнем их в папку build
         .pipe(reload({stream: true}));    // И перезагрузим наш сервер для обновлений
 });
