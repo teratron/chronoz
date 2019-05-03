@@ -154,7 +154,7 @@ gulp.task('clean', function() {
 
 // Таск с именем «build», который буsдет запускать все
 gulp.task('build', gulp.parallel('php:build', 'html:build', 'js:build', 'scss:build', 'image:build', 'font:build', function() {
-    return gulp.src(orgn + '/*.ico')    // Выберем файлы по нужному пути
+    return gulp.src(orgn + '/*.ico')   // Выберем файлы по нужному пути
         .pipe(gulp.dest(dist))         // Выплюнем их в папку build
         .pipe(reload({stream: true})); // И перезагрузим сервер
 }));
@@ -164,35 +164,31 @@ gulp.task('webserver', function() {
     browserSync(config);
 });
 
-/*
-// Изменения файлов (gulp watch)
+// Изменения файлов
 // Чтобы не лазить все время в консоль давайте попросим gulp каждый раз при изменении какого то файла запускать нужную задачу.
 // Для этого напишет такой таск:
 gulp.task('watch', function() {
-    watch([path.watch.html], function(ev, cb) {
+    watch([path.watch.html], function() {
         return gulp.start('html:build');
     });
-    watch([path.watch.js], function(ev, cb) {
+    watch([path.watch.js], function() {
         return gulp.start('js:build');
     });
-    watch([path.watch.scss], function(ev, cb) {
+    watch([path.watch.scss], function() {
         return gulp.start('scss:build');
     });
-    watch([path.watch.img], function(ev, cb) {
+    watch([path.watch.img], function() {
         return gulp.start('image:build');
     });
-    watch([path.watch.font], function(ev, cb) {
+    watch([path.watch.font], function() {
         return gulp.start('font:build');
     });
 });
 
-// Дефолтный таск, который запускаут всю нашу сборку (gulp)
-//gulp.task('default', ['clean', 'build', 'webserver', 'watch']);
-gulp.task('default', gulp.series('clean', 'build', 'webserver', 'watch'));
-*/
+// Дефолтный таск, который запускаут всю нашу сборку
+gulp.task('default', gulp.series('clean', 'clear', 'build', 'webserver', 'watch'));
 
 //----------------------------------------------------
-
 
 // Load plugins
 /*const gulp = require("gulp");
