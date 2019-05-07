@@ -1,7 +1,7 @@
 {
   "name": "chronoz",
   "version": "0.0.1",
-  "description": "Framework",
+  "description": "Framework Template",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,14 +11,36 @@
     "url": "git+https://github.com/teratron/chronoz.git"
   },
   "keywords": [
-    "keywords"
+    "keywords",
+    "javascript",
+    "jquery",
+    "css",
+    "sass",
+    "less",
+    "html",
+    "framework",
+    "front-end",
+    "responsive"
   ],
-  "author": "Alexandrov Oleg",
+  "author": {
+    "name": "Alexandrov Oleg",
+    "url": "https://github.com/teratron/chronoz/issues",
+    "github": "https://github.com/teratron"
+  },
+  "contributors": [
+    {
+      "name": "",
+      "url": "https://github.com/"
+    }
+  ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/teratron/chronoz/issues"
+    "url": "https://github.com/teratron/chronoz/issues",
+    "email": "alexandrovoleg.ru@gmail.com"
   },
   "homepage": "https://github.com/teratron/chronoz#readme",
+  "dependencies": {
+  },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
