@@ -1,1 +1,0 @@
-.col>.bar{display:grid}.col,.row{display:-ms-flexbox;display:flex}.row{-ms-flex-direction:row;flex-direction:row}.col{-ms-flex-direction:column;flex-direction:column}.bar{display:inline-grid;grid-auto-flow:row;-ms-flex-align:center;align-items:center}.row>.bar{grid-auto-flow:column}.cell{width:100%}

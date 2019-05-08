@@ -113,11 +113,11 @@ gulp.task('js:build', () => {
 
 // Собираем стили
 gulp.task('scss:dev', function() {
+    del(path.dev.css + '**/*.css', {force:true});
     return gulp.src(path.dev.scss)       // Выберем наш scss-файл
         .pipe(sass())                    // Скомпилируем
+        .pipe(purgecss({content: [path.dev.html]}))
         .pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'], cascade: true})) // Добавим вендорные префиксы
-        .pipe(cssnano())                 // Сожмем
-        .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
         .pipe(gulp.dest(path.dev.css));  // И в build
 });
 
