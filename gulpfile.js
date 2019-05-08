@@ -4,6 +4,7 @@ const gulp         = require('gulp');              // Подключаем Gulp
 const sass         = require('gulp-sass');         // Подключаем Sass пакет,
 const less         = require('gulp-less');         // Подключаем Less пакет,
 const babel        = require('gulp-babel');
+const purgecss     = require('gulp-purgecss');
 const cssnano      = require('gulp-cssnano');      // Подключаем пакет для минификации CSS
 const autoprefixer = require('gulp-autoprefixer'); // Подключаем библиотеку для автоматического добавления префиксов
 const htmlmin      = require('gulp-htmlmin');      //
@@ -117,24 +118,25 @@ gulp.task('scss:dev', function() {
         .pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'], cascade: true})) // Добавим вендорные префиксы
         .pipe(cssnano())                 // Сожмем
         .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
-        .pipe(gulp.dest(path.dev.css)); // И в build
+        .pipe(gulp.dest(path.dev.css));  // И в build
 });
 
 gulp.task('scss:build', function() {
-    return gulp.src(path.dev.scss)       // Выберем наш scss-файл
-        .pipe(sourcemaps.init())         // Инициализируем sourcemap
-        .pipe(sass())                    // Скомпилируем
+    return gulp.src(path.dev.scss)        // Выберем наш scss-файл
+        .pipe(sourcemaps.init())          // Инициализируем sourcemap
+        .pipe(sass())                     // Скомпилируем
+        .pipe(purgecss({content: [path.dev.html]}))
         .pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'], cascade: true})) // Добавим вендорные префиксы
-        .pipe(cssnano())                 // Сожмем
-        .pipe(rename({suffix: '.min'}))  // Добавляем суффикс .min
+        .pipe(cssnano())                  // Сожмем
+        .pipe(rename({suffix: '.min'}))   // Добавляем суффикс .min
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(path.build.css));// И в build
+        .pipe(gulp.dest(path.build.css)); // И в build
 });
 
 // Собираем картинки
 gulp.task('image:build', function() {
     return gulp.src(path.dev.img)        // Выберем наши картинки
-        .pipe(cache(imagemin({                 // Сожмем их
+        .pipe(cache(imagemin({           // Сожмем их
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
