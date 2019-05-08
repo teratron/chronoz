@@ -2,8 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55916f13-a85e-4d5f-b029-00cbc6356883" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/scss/_reset.scss" afterPath="$PROJECT_DIR$/dev/scss/_reset.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/index.html" afterPath="$PROJECT_DIR$/dev/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/css/chronoz.css" afterPath="$PROJECT_DIR$/src/css/chronoz.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/css/chronoz.min.css" afterPath="$PROJECT_DIR$/src/css/chronoz.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/css/index.html" afterPath="$PROJECT_DIR$/src/css/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/favicon.ico" afterPath="$PROJECT_DIR$/src/favicon.ico" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/images/empty_10x10.png" afterPath="$PROJECT_DIR$/src/images/empty_10x10.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/images/empty_16x10.png" afterPath="$PROJECT_DIR$/src/images/empty_16x10.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/images/empty_16x9.png" afterPath="$PROJECT_DIR$/src/images/empty_16x9.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/images/empty_4x3.png" afterPath="$PROJECT_DIR$/src/images/empty_4x3.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/images/index.html" afterPath="$PROJECT_DIR$/src/images/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/index.php" afterPath="$PROJECT_DIR$/src/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/chronoz.js" afterPath="$PROJECT_DIR$/src/js/chronoz.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/js/index.html" afterPath="$PROJECT_DIR$/src/js/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/less/adaptive.less" afterPath="$PROJECT_DIR$/src/less/adaptive.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/less/chronoz.less" afterPath="$PROJECT_DIR$/src/less/chronoz.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/less/index.html" afterPath="$PROJECT_DIR$/src/less/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/less/layout.less" afterPath="$PROJECT_DIR$/src/less/layout.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/less/reset.less" afterPath="$PROJECT_DIR$/src/less/reset.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/less/variables.less" afterPath="$PROJECT_DIR$/src/less/variables.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/libs/index.html" afterPath="$PROJECT_DIR$/src/libs/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/scss/_adaptive.scss" afterPath="$PROJECT_DIR$/src/scss/_adaptive.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/scss/_layout.scss" afterPath="$PROJECT_DIR$/src/scss/_layout.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/scss/_reset.scss" afterPath="$PROJECT_DIR$/src/scss/_reset.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/scss/_variables.scss" afterPath="$PROJECT_DIR$/src/scss/_variables.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/scss/chronoz.scss" afterPath="$PROJECT_DIR$/src/scss/chronoz.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dev/scss/index.html" afterPath="$PROJECT_DIR$/src/scss/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/chronoz.iml" afterPath="$PROJECT_DIR$/.idea/chronoz.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,7 +57,7 @@
       <split-first>
         <leaf>
           <file leaf-file-name="layout.less" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dev/less/layout.less">
+            <entry file="file://$PROJECT_DIR$/src/less/layout.less">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
@@ -41,7 +67,7 @@
             </entry>
           </file>
           <file leaf-file-name="chronoz.scss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dev/scss/chronoz.scss">
+            <entry file="file://$PROJECT_DIR$/src/scss/chronoz.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -51,7 +77,7 @@
             </entry>
           </file>
           <file leaf-file-name="_variables.scss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dev/scss/_variables.scss">
+            <entry file="file://$PROJECT_DIR$/src/scss/_variables.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
@@ -60,10 +86,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_reset.scss" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/dev/scss/_reset.scss">
+          <file leaf-file-name="_reset.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/scss/_reset.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.015641293">
+                <state vertical-scroll-proportion="-0.625">
                   <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
                   <folding />
                 </state>
@@ -71,7 +97,7 @@
             </entry>
           </file>
           <file leaf-file-name="_layout.scss" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dev/scss/_layout.scss">
+            <entry file="file://$PROJECT_DIR$/src/scss/_layout.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
@@ -80,11 +106,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/gulpfile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.7376543">
+                  <caret line="75" column="28" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="28" />
                   <folding />
                 </state>
               </provider>
@@ -95,10 +121,10 @@
       <split-second>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dev/index.html">
+            <entry file="file://$PROJECT_DIR$/src/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+                <state vertical-scroll-proportion="-13.125">
+                  <caret line="21" column="79" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="79" />
                   <folding />
                 </state>
               </provider>
@@ -107,8 +133,8 @@
           <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.34410843">
-                  <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+                <state vertical-scroll-proportion="0.71202534">
+                  <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -125,7 +151,7 @@
             </entry>
           </file>
           <file leaf-file-name="chronoz.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dev/js/chronoz.js">
+            <entry file="file://$PROJECT_DIR$/src/js/chronoz.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
@@ -173,9 +199,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/dev/js/chronoz.js" />
         <option value="$PROJECT_DIR$/dev/scss/_variables.scss" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
-        <option value="$PROJECT_DIR$/dev/index.html" />
         <option value="$PROJECT_DIR$/dev/scss/_reset.scss" />
+        <option value="$PROJECT_DIR$/dev/index.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
@@ -280,7 +306,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -315,6 +340,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -618,7 +644,13 @@
       <option name="project" value="LOCAL" />
       <updated>1557219244922</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="gulp">
+      <created>1557229961003</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1557229961003</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -635,28 +667,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="81" y="23" width="2425" height="1352" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10532942" sideWeight="0.4025717" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10532942" sideWeight="0.59742826" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291039" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19761905" sideWeight="0.51028115" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19761905" sideWeight="0.48971885" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20634921" sideWeight="0.5014687" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19761905" sideWeight="0.4880403" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20634921" sideWeight="0.53378093" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20618556" sideWeight="0.49303135" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.106168695" sideWeight="0.407" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.106168695" sideWeight="0.593" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.49853125" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20684169" sideWeight="0.53718656" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,7 +720,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dev/scss/_layout.scss">
+    <entry file="file://$PROJECT_DIR$/src/scss/_layout.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
@@ -704,7 +736,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/index.html">
+    <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
@@ -728,7 +760,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/chronoz.js">
+    <entry file="file://$PROJECT_DIR$/src/js/chronoz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
@@ -736,105 +768,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/chronoz.js">
+    <entry file="file://$PROJECT_DIR$/src/js/chronoz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/chronoz.less">
+    <entry file="file://$PROJECT_DIR$/src/less/chronoz.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/variables.less">
+    <entry file="file://$PROJECT_DIR$/src/less/variables.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/reset.less">
+    <entry file="file://$PROJECT_DIR$/src/less/reset.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="1" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/layout.less">
+    <entry file="file://$PROJECT_DIR$/src/less/layout.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/adaptive.less">
+    <entry file="file://$PROJECT_DIR$/src/less/adaptive.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/chronoz.less">
+    <entry file="file://$PROJECT_DIR$/src/less/chronoz.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/variables.less">
+    <entry file="file://$PROJECT_DIR$/src/less/variables.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/reset.less">
+    <entry file="file://$PROJECT_DIR$/src/less/reset.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/layout.less">
+    <entry file="file://$PROJECT_DIR$/src/less/layout.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/adaptive.less">
+    <entry file="file://$PROJECT_DIR$/src/less/adaptive.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/chronoz.less">
+    <entry file="file://$PROJECT_DIR$/src/less/chronoz.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/adaptive.less">
+    <entry file="file://$PROJECT_DIR$/src/less/adaptive.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/reset.less">
+    <entry file="file://$PROJECT_DIR$/src/less/reset.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/variables.less">
+    <entry file="file://$PROJECT_DIR$/src/less/variables.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="26" />
@@ -842,21 +874,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/dev/index.php">
+    <entry file="file://$PROJECT_DIR$/src/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1107595">
           <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/css/chronoz.css">
+    <entry file="file://$PROJECT_DIR$/src/css/chronoz.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/css/chronoz.min.css">
+    <entry file="file://$PROJECT_DIR$/src/css/chronoz.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -940,7 +972,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/favicon.ico">
+    <entry file="file://$PROJECT_DIR$/src/favicon.ico">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -973,7 +1005,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/scss/_layout.scss">
+    <entry file="file://$PROJECT_DIR$/src/scss/_layout.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
@@ -981,7 +1013,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/scss/_variables.scss">
+    <entry file="file://$PROJECT_DIR$/src/scss/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
@@ -989,7 +1021,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/scss/chronoz.scss">
+    <entry file="file://$PROJECT_DIR$/src/scss/chronoz.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -997,7 +1029,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/less/layout.less">
+    <entry file="file://$PROJECT_DIR$/src/less/layout.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
@@ -1005,7 +1037,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/chronoz.js">
+    <entry file="file://$PROJECT_DIR$/src/js/chronoz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
@@ -1021,34 +1053,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scss/_reset.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.125">
+          <caret line="21" column="79" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/scss/_reset.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.015641293">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7376543">
+          <caret line="75" column="28" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34410843">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.71202534">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
           <folding />
         </state>
       </provider>

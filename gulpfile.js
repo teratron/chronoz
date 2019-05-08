@@ -24,12 +24,12 @@ const {phpMinify}  = require('@cedx/gulp-php-minify');
 // Настройки проекта
 let project = {
     name: 'chronoz',
-    ver:  '0.0.1'
+    ver: '0.0.1'
 };
 
 // Пути проекта
-let dist = 'build';
-let orgn = 'dev';
+let dist = 'dist';
+let orgn = 'src';
 let path = {
     build: { // Тут мы укажем куда складывать готовые после сборки файлы
         js:   dist + '/js/',

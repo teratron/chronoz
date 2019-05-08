@@ -11,7 +11,6 @@
     "url": "git+https://github.com/teratron/chronoz.git"
   },
   "keywords": [
-    "keywords",
     "javascript",
     "jquery",
     "css",
@@ -26,8 +25,10 @@
     "name": "Alexandrov Oleg",
     "url": "https://github.com/teratron/chronoz/issues",
     "github": "https://github.com/teratron"
+    "email": "alexandrovoleg.ru@gmail.com"
   },
   "contributors": [
+    "Twitter, Inc.",
     {
       "name": "",
       "url": "https://github.com/"
