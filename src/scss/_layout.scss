@@ -29,6 +29,84 @@
         @extend %display-grid;
     }
 }
-.cell {
-    width: 100%;
+
+//
+$max-media: 1200px;
+$min-media: 360px;
+
+$step: ($max-media - $min-media) / ($grid - 2);
+
+/***************************************
+  Cell
+ ***************************************/
+$j: 100% / $grid;
+@for $i from 1 to $grid {
+    .cell-#{$i} {
+        $k: $i * $j;
+        width:     $k;
+        max-width: $k;
+    }
 }
+.cell,
+.cell-#{$grid} {
+    width:     100%;
+    max-width: 100%;
+}
+
+
+/*
+
+.@{cell} {
+}
+.generate-cell(@layout_column);
+.generate-cell(@n, @i: 1) when (@i =< @n) {
+    .@{cell}_@{i} {
+    @j: @layout_column_width*@i;
+    width:     @j;
+    max-width: @j;
+}
+    .generate-cell(@n, (@i + 1));
+}
+@media only screen and (max-width: @layout_width) {
+    @j: round(100vw/@layout_column, 4);
+    .media-cell(@layout_column);
+    .media-cell(@n, @i: 1) when (@i =< @n) {
+    .@{cell}_@{i} {
+    @k: @j*@i;
+    width:     @k;
+    max-width: @k;
+}
+    .media-cell(@n, (@i + 1));
+}
+}
+
+
+$max-media: 1200px;
+$min-media: 360px;
+
+$step: ($max-media - $min-media)/($grid - 2);
+.for-media(1);
+.for-media($n, $i: $grid) when ($i > $n) {
+    @media only screen and (max-width: $max-media - ($grid - $i)*$step) {// ($i*60px + 240px)
+        $j: $i - 1;
+        .grid {
+            grid-template-columns: repeat($j, minmax(0, 1fr));
+        }
+        $cell: ~"cell-${i}";
+        //.cell-@{i}, [class*="cell-${i}__"] {
+        .${cell} {
+            grid-column: span $j;
+        }
+        .for-media-cell(@grid);
+        .for-media-cell(@m, @k: @i + 1) when (@k =< @m) {
+            .cell-@{k}, [class*="cell-@{k}__"] {
+                grid-column: span @j;
+                //&:extend(.cell-@{i});
+                &:extend(.@{cell});
+            }
+            .for-media-cell(@m, @k + 1);
+        }
+    }
+    .for-media(@n, @i - 1);
+}
+*/
