@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55916f13-a85e-4d5f-b029-00cbc6356883" name="Default" comment="gulp">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/index.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css/chronoz.css" afterPath="" />
+    <list default="true" id="55916f13-a85e-4d5f-b029-00cbc6356883" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scss/_layout.scss" afterPath="$PROJECT_DIR$/src/scss/_layout.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scss/chronoz.scss" afterPath="$PROJECT_DIR$/src/scss/chronoz.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="aeb1a9f2-3aa1-4465-8d0e-b57ed81bfde1" name="Ignored" comment="" />
@@ -55,8 +51,8 @@
           <file leaf-file-name="_variables.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/scss/_variables.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-10.625">
-                  <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+                <state vertical-scroll-proportion="-12.5">
+                  <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -75,8 +71,8 @@
           <file leaf-file-name="_layout.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/scss/_layout.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.79113925">
-                  <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+                <state vertical-scroll-proportion="0.54113925">
+                  <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -181,9 +177,9 @@
         <option value="$PROJECT_DIR$/src/scss/_reset.scss" />
         <option value="$PROJECT_DIR$/src/scss/_variables.scss" />
         <option value="$PROJECT_DIR$/src/scss/chronoz.scss" />
-        <option value="$PROJECT_DIR$/src/scss/_layout.scss" />
         <option value="$PROJECT_DIR$/src/css/chronoz.css" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/src/scss/_layout.scss" />
       </list>
     </option>
   </component>
@@ -688,7 +684,13 @@
       <option name="project" value="LOCAL" />
       <updated>1557323868706</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="gulp layout">
+      <created>1558017391287</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1558017391287</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -771,7 +773,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="js" />
     <MESSAGE value="gulp" />
-    <option name="LAST_COMMIT_MESSAGE" value="gulp" />
+    <MESSAGE value="gulp layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="gulp layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1099,14 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scss/chronoz.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625">
@@ -1139,10 +1134,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/scss/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/scss/_layout.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79113925">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.54113925">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
           <folding />
         </state>
       </provider>
