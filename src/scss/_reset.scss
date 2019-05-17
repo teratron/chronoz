@@ -4,6 +4,29 @@
 @import url("https://fonts.googleapis.com/css?family=#{$family}");
 @import url("https://use.fontawesome.com/releases/v5.7.0/css/all.css");
 
+/***************************************
+  Root
+ ***************************************/
+*, :before, :after, ::before, ::after {
+    position: relative;
+    box-sizing: border-box;
+}
+html {
+    font-family: sans-serif;
+    font-size: $unit;
+    height: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
 body {
-    font-family: "Anton", sans-serif;
+    font-size: 1.2rem;
+    font-family: "Roboto", "Anton", sans-serif;
+    font-weight: 300;
+    line-height: 2rem;
+    min-height:  100%;
+    margin: 0;
+    overflow-x: hidden;
+    z-index: 1;
 }

@@ -122,9 +122,9 @@ gulp.task('scss:dev', function() {
             browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
             cascade: true
         }))
-        .pipe(cssnano())                  // Сожмем
-        .pipe(rename({suffix: '.min'}))   // Добавляем суффикс .min
-        .pipe(sourcemaps.write('.'))
+        //.pipe(cssnano())                  // Сожмем
+        //.pipe(rename({suffix: '.min'}))   // Добавляем суффикс .min
+        //.pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(path.dev.css));  // И в build
 });
 

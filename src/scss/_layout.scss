@@ -13,6 +13,7 @@
 .row {
     @extend %display-flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .col {
     @extend %display-flex;
@@ -30,16 +31,12 @@
     }
 }
 
-//
-$max-media: 1200px;
-$min-media: 360px;
 
-$step: ($max-media - $min-media) / ($grid - 2);
 
 /***************************************
   Cell
  ***************************************/
-$j: 100% / $grid;
+$j: $layout-width / $grid;
 @for $i from 1 to $grid {
     .cell-#{$i} {
         $k: $i * $j;
@@ -49,11 +46,32 @@ $j: 100% / $grid;
 }
 .cell,
 .cell-#{$grid} {
-    width:     100%;
-    max-width: 100%;
+    width:     $layout-width;
+    max-width: $layout-width;
+}
+
+@media only screen and (max-width: $layout-width) {
+    $j: 100vw / $grid;
+    @for $i from 1 to $grid {
+        .cell-#{$i} {
+            $k: $i * $j;
+            width:     $k;
+            max-width: $k;
+        }
+    }
+    .cell,
+    .cell-#{$grid} {
+        width:     100vw;
+        max-width: 100vw;
+    }
 }
 
 
+//
+$max-media: 1200px;
+$min-media: 360px;
+
+$step: ($max-media - $min-media) / ($grid - 2);
 /*
 .@{cell} {
 }
