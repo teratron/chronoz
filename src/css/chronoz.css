@@ -45,7 +45,7 @@ body {
   display: grid; }
 
 .grid {
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(16, minmax(0, 1fr));
   grid-template-rows: auto; }
 
 .row {
