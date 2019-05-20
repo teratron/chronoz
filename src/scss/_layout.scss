@@ -18,7 +18,6 @@
 }
 .grid {
     @extend %display-grid;
-    //grid-auto-flow: column;
     grid-template-columns: repeat($grid, 1fr);
     grid-template-rows: auto;
 }
@@ -26,6 +25,14 @@
     @extend %display-flex;
     flex-direction: row;
     flex-wrap: wrap;
+    > .head {
+    }
+    > .body {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    > .foot {
+    }
 }
 .col {
     @extend %display-flex;
@@ -35,11 +42,10 @@
     display: inline-grid;
     grid-auto-flow: column;
     align-items: center;
-    .row > & {
+    .row > &, .col > & {
         @extend %display-grid;
     }
     .col > & {
-        @extend %display-grid;
     }
 }
 
@@ -48,23 +54,24 @@
  ***************************************/
 @mixin cell-width($w) {
     $j: $w / $grid;
-    @for $i from 1 to $grid {
+    @for $i from 1 through $grid {
         .cell-#{$i} {
             $k: $i * $j;
             width:     $k;
             max-width: $k;
         }
     }
-    .cell-#{$grid} {
-        width:     $w;
-        max-width: $w;
-    }
-}
-@include cell-width($layout-width);
-@media only screen and (max-width: $layout-width) {
-    @include cell-width(100vw);
 }
 
+@include cell-width($layout-width);
+
+@if $layout-width != 100vw {
+    @media only screen and (max-width: $layout-width) {
+        @include cell-width(100vw);
+    }
+}
+
+/*** Grid Cell ***/
 $max-media: 1200px;
 $min-media: 360px;
 $s: ($max-media - $min-media)/($grid - 2);
@@ -73,7 +80,11 @@ $s: ($max-media - $min-media)/($grid - 2);
     width: auto;
     max-width: none;
 }
-
+@for $i from 1 through $grid {
+    .grid > .cell-#{$i} {
+        grid-column: span $i;
+    }
+}
 @for $i from $grid to 1 {
     @media only screen and (max-width: $max-media - ($grid - $i)*$s) {
         $k: $i - 1;

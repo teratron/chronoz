@@ -4,8 +4,10 @@
 /***************************************
   Root
  ***************************************/
+* {
+  position: relative; }
+
 *, :before, :after, ::before, ::after {
-  position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
@@ -55,6 +57,14 @@ body {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
+  .row > .body {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
 
 .col {
   -webkit-box-orient: vertical;
@@ -188,9 +198,58 @@ body {
     width: 100vw;
     max-width: 100vw; } }
 
+/*** Grid Cell ***/
 .grid > [class*="cell-"] {
   width: auto;
   max-width: none; }
+
+.grid > .cell-1 {
+  grid-column: span 1; }
+
+.grid > .cell-2 {
+  grid-column: span 2; }
+
+.grid > .cell-3 {
+  grid-column: span 3; }
+
+.grid > .cell-4 {
+  grid-column: span 4; }
+
+.grid > .cell-5 {
+  grid-column: span 5; }
+
+.grid > .cell-6 {
+  grid-column: span 6; }
+
+.grid > .cell-7 {
+  grid-column: span 7; }
+
+.grid > .cell-8 {
+  grid-column: span 8; }
+
+.grid > .cell-9 {
+  grid-column: span 9; }
+
+.grid > .cell-10 {
+  grid-column: span 10; }
+
+.grid > .cell-11 {
+  grid-column: span 11; }
+
+.grid > .cell-12 {
+  grid-column: span 12; }
+
+.grid > .cell-13 {
+  grid-column: span 13; }
+
+.grid > .cell-14 {
+  grid-column: span 14; }
+
+.grid > .cell-15 {
+  grid-column: span 15; }
+
+.grid > .cell-16 {
+  grid-column: span 16; }
 
 @media only screen and (max-width: 1200px) {
   .grid {

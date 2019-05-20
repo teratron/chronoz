@@ -7,8 +7,10 @@
 /***************************************
   Root
  ***************************************/
-*, :before, :after, ::before, ::after {
+* {
     position: relative;
+}
+*, :before, :after, ::before, ::after {
     box-sizing: border-box;
 }
 html {
