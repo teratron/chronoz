@@ -72,10 +72,6 @@
 }
 
 /*** Grid Cell ***/
-$max-media: 1200px;
-$min-media: 360px;
-$s: ($max-media - $min-media)/($grid - 2);
-
 .grid > [class*="cell-"] {
     width: auto;
     max-width: none;
@@ -85,9 +81,12 @@ $s: ($max-media - $min-media)/($grid - 2);
         grid-column: span $i;
     }
 }
+
+$s: ($layout-width - $layout-width-min)/$grid;
+
 @for $i from $grid to 1 {
-    @media only screen and (max-width: $max-media - ($grid - $i)*$s) {
-        $k: $i - 1;
+    $k: $i - 1;
+    @media only screen and (max-width: round($layout-width - ($grid - $k)*$s)) {
         .grid {
             grid-template-columns: repeat($k, minmax(0, 1fr));
             > %cell-#{$i} {

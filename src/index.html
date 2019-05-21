@@ -47,6 +47,12 @@
         .list.row > .list-item {
             height: auto;
         }
+        .grid > :nth-child(odd) {
+            background-color: green;
+        }
+        .grid > :nth-child(even) {
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
@@ -94,43 +100,43 @@
 
     <ul class="list">
         <li class="list-item">
-            <div class="list-item__head">head</div>
-            <div class="list-item__head">head</div>
-            <div class="list-item__body">body</div>
-            <div class="list-item__foot">foot</div>
+            <div class="head">head</div>
+            <div class="head">head</div>
+            <div class="body">body</div>
+            <div class="foot">foot</div>
         </li>
         <li class="list-item">
-            <div class="list-item__head">head</div>
-            <div class="list-item__body">body</div>
-            <div class="list-item__foot">foot</div>
-            <div class="list-item__foot">foot</div>
+            <div class="head">head</div>
+            <div class="body">body</div>
+            <div class="foot">foot</div>
+            <div class="foot">foot</div>
         </li>
         <li class="list-item">
-            <div class="list-item__head">head</div>
-            <div class="list-item__body">body</div>
-            <div class="list-item__body">foot</div>
-            <div class="list-item__foot">foot</div>
+            <div class="head">head</div>
+            <div class="body">body</div>
+            <div class="body">foot</div>
+            <div class="foot">foot</div>
         </li>
     </ul>
 
     <ul class="list row">
         <li class="list-item">
-            <div class="list-item__head">head</div>
-            <div class="list-item__head">head</div>
-            <div class="list-item__body">body</div>
-            <div class="list-item__foot">foot</div>
+            <div class="head">head</div>
+            <div class="head">head</div>
+            <div class="body">body</div>
+            <div class="foot">foot</div>
         </li>
         <li class="list-item">
-            <div class="list-item__head">head</div>
-            <div class="list-item__body">body</div>
-            <div class="list-item__foot">foot</div>
-            <div class="list-item__foot">foot</div>
+            <div class="head">head</div>
+            <div class="body">body</div>
+            <div class="foot">foot</div>
+            <div class="foot">foot</div>
         </li>
         <li class="list-item">
-            <div class="list-item__head">head</div>
-            <div class="list-item__body">body</div>
-            <div class="list-item__body">foot</div>
-            <div class="list-item__foot">foot</div>
+            <div class="head">head</div>
+            <div class="body">body</div>
+            <div class="body">foot</div>
+            <div class="foot">foot</div>
         </li>
     </ul>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.js"></script>
