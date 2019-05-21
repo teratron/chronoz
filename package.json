@@ -39,7 +39,9 @@
     "email": "alexandrovoleg.ru@gmail.com"
   },
   "homepage": "https://github.com/teratron/chronoz#readme",
-  "dependencies": {},
+  "dependencies": {
+    "npm": "^6.9.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
