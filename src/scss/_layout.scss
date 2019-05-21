@@ -77,10 +77,10 @@
         grid-column: span $i;
     }
 }
-$s: ($layout-width - $layout-width-min)/$grid;
+$s: ($layout-width - $layout-width-min) / $grid;
 @for $i from $grid to 1 {
     $k: $i - 1;
-    @media only screen and (max-width: round($layout-width - ($grid - $k)*$s)) {
+    @media only screen and (max-width: round($layout-width - ($grid - $k) * $s)) {
         .grid {
             grid-template-columns: repeat($k, minmax(0, 1fr));
             > %cell-#{$i} {
