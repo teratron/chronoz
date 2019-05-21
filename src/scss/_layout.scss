@@ -60,9 +60,7 @@
         }
     }
 }
-
 @include cell-width($layout-width);
-
 @if $layout-width != 100vw {
     @media only screen and (max-width: $layout-width) {
         @include cell-width(100vw);
@@ -79,9 +77,7 @@
         grid-column: span $i;
     }
 }
-
 $s: ($layout-width - $layout-width-min)/$grid;
-
 @for $i from $grid to 1 {
     $k: $i - 1;
     @media only screen and (max-width: round($layout-width - ($grid - $k)*$s)) {
