@@ -119,7 +119,7 @@ $s: ($layout-width - $layout-width-min) / $grid;
 }
 @for $i from 1 through $grid {
     @for $j from 1 through 6*$i {
-        @media only screen and (min-width: round(($layout-width-min + $j * $layout-width-min / $i))) {
+        @media only screen and (min-width: round($layout-width-min + $j * $layout-width-min / $i)) {
             .tile-#{$i} > * {
                 $k: 100% / ($i + $j);
                 width: $k;

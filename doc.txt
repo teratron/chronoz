@@ -56,6 +56,8 @@ bower install
 
 
 
+https://habr.com/ru/post/251807/
+https://github.com/vigetlabs/blendid
 
 
 
