@@ -112,7 +112,7 @@ gulp.task('js:build', () => {
 });
 
 // Собираем стили
-gulp.task('scss:dev', function() {
+gulp.task('scss:dev', () => {
     del(path.dev.css + '**/*.css', {force:true});
     return gulp
         .src(path.dev.scss)              // Выберем наш scss-файл

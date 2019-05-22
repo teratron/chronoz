@@ -94,3 +94,36 @@ $s: ($layout-width - $layout-width-min) / $grid;
         }
     }
 }
+
+/***************************************
+  Tile
+ ***************************************/
+@media only screen and (min-width: 0) {
+    .tile > * {
+        width: 100%;
+    }
+    @for $i from 1 through $grid {
+        .tile-#{$i} > * {
+            $j: 100% / $i;
+            width: $j;
+        }
+    }
+}
+@for $i from 1 through $grid {
+    @media only screen and (min-width: (120px + $i*120px)) {
+        .tile > * {
+            $j: 100% / ($i + 1);
+            width: $j;
+        }
+    }
+}
+@for $i from 1 through $grid {
+    @for $j from 1 through 6*$i {
+        @media only screen and (min-width: round(($layout-width-min + $j * $layout-width-min / $i))) {
+            .tile-#{$i} > * {
+                $k: 100% / ($i + $j);
+                width: $k;
+            }
+        }
+    }
+}
