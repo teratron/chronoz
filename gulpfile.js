@@ -148,7 +148,7 @@ function RunGulpSass(src, dest) {
             .pipe(sourcemaps.init())          // Инициализируем sourcemap
             .pipe(sass())                     // Скомпилируем
             .pipe(purgecss({content: [path.dev.html]}))
-            .pipe(autoprefixer({             // Добавим вендорные префиксы
+            .pipe(autoprefixer({              // Добавим вендорные префиксы
                 browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
                 cascade: true
             }))
