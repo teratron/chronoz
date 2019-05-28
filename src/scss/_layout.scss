@@ -105,7 +105,8 @@ $s: ($layout-width - $layout-width-min) / $grid;
     @for $i from 1 through $grid {
         .tile-#{$i} > * {
             $j: 100% / $i;
-            width: $j;
+            width:     $j;
+            max-width: $j;
         }
     }
 }
@@ -113,7 +114,8 @@ $s: ($layout-width - $layout-width-min) / $grid;
     @media only screen and (min-width: (120px + $i*120px)) {
         .tile > * {
             $j: 100% / ($i + 1);
-            width: $j;
+            width:     $j;
+            max-width: $j;
         }
     }
 }
@@ -122,7 +124,8 @@ $s: ($layout-width - $layout-width-min) / $grid;
         @media only screen and (min-width: round($layout-width-min + $j * $layout-width-min / $i)) {
             .tile-#{$i} > * {
                 $k: 100% / ($i + $j);
-                width: $k;
+                width:     $k;
+                max-width: $k;
             }
         }
     }
