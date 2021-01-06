@@ -4,32 +4,32 @@
 //
 //******************************************************************************
 
-$version:               "0.0.1";
+$version: "0.0.1";
 
-$images:                "../images";
-$fonts:                 "../fonts";
-$family:                unquote("Droid+Sans");
+$images: "../images";
+$fonts: "../fonts";
+$family: unquote("Droid+Sans");
 
 
 $unit: 10px;
 
 
 //*** Layout ***//
-$grid:                  16;
-$grid-gap:              20px;
-$grid-width:            120px;
+$grid: 16;
+$grid-gap: 20px;
+$grid-width: 120px;
 
-$layout-width:          1360px;
-$layout-width-min:      360px;
+$layout-width: 1360px;
+$layout-width-min: 360px;
 
-$header-height:         80px;
-$footer-height:         auto;
+$header-height: 80px;
+$footer-height: auto;
 
-$navbar-width:          260px;
-$navbar-width-min:      80px;
+$navbar-width: 260px;
+$navbar-width-min: 80px;
 
-$sidebar-width:         0;
-$sidebar-width-min:     0;
+$sidebar-width: 0;
+$sidebar-width-min: 0;
 
 
 

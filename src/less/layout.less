@@ -5,11 +5,6 @@
 //******************************************************************************
 
 
-
-
-
-
-
 /*.col, .row, .list, [class*="tile"] {
     > li {
         list-style-type: none;
@@ -20,7 +15,6 @@
 }*/
 
 
-
 //  list
 //      list-item
 //          list-item__head
@@ -28,36 +22,41 @@
 //          list-item__foot
 
 
-
 .list {
-    flex-direction: column;
-    &, &-item {
-        display: flex;
+  flex-direction: column;
+
+  &, &-item {
+    display: flex;
+  }
+
+  &-item {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style-type: none;
+
+    &__head {
+      /*background-color: blue;*/
     }
-    &-item {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        list-style-type: none;
-        &__head {
-            /*background-color: blue;*/
-        }
-        &__body {
-            /*background-color: green;*/
-            flex-grow: 1;
-        }
-        &__foot {
-            /*background-color: red;*/
-        }
+
+    &__body {
+      /*background-color: green;*/
+      flex-grow: 1;
     }
+
+    &__foot {
+      /*background-color: red;*/
+    }
+  }
 }
 
 
 .list.row {
-    flex-direction: row;
-    > .list-item {
-        flex-direction: column;
-    }
+  flex-direction: row;
+
+  > .list-item {
+    flex-direction: column;
+  }
 }
 
 /*

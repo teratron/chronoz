@@ -1,26 +1,26 @@
 'use strict';
 
-const gulp         = require('gulp');              // Подключаем Gulp
-const sass         = require('gulp-sass');         // Подключаем Sass пакет,
-const less         = require('gulp-less');         // Подключаем Less пакет,
-const babel        = require('gulp-babel');
-const purgecss     = require('gulp-purgecss');
-const cssnano      = require('gulp-cssnano');      // Подключаем пакет для минификации CSS
+const gulp = require('gulp');              // Подключаем Gulp
+const sass = require('gulp-sass');         // Подключаем Sass пакет,
+const less = require('gulp-less');         // Подключаем Less пакет,
+const babel = require('gulp-babel');
+const purgecss = require('gulp-purgecss');
+const cssnano = require('gulp-cssnano');      // Подключаем пакет для минификации CSS
 const autoprefixer = require('gulp-autoprefixer'); // Подключаем библиотеку для автоматического добавления префиксов
-const htmlmin      = require('gulp-htmlmin');      //
-const sourcemaps   = require('gulp-sourcemaps');   //
-const rename       = require('gulp-rename');       // Подключаем библиотеку для переименования файлов
-const concat       = require('gulp-concat');       // Подключаем gulp-concat (для конкатенации файлов/собирает воедино)
-const uglify       = require('gulp-uglify');       // Подключаем gulp-uglify (для сжатия JS)
-const imagemin     = require('gulp-imagemin');     // Подключаем библиотеку для работы с изображениями
-const pngquant     = require('imagemin-pngquant'); // Подключаем библиотеку для работы с png
-const rigger       = require('gulp-rigger');       //= test.html //= test.js /*= includes/test.css */
-const del          = require('del');               // Подключаем библиотеку для удаления файлов и папок
-const cache        = require('gulp-cache');        // Подключаем библиотеку кеширования
-const watch        = require('gulp-watch');
-const browserSync  = require('browser-sync');      // Подключаем Browser Sync
-const reload       = browserSync.reload;
-const {phpMinify}  = require('@cedx/gulp-php-minify');
+const htmlmin = require('gulp-htmlmin');      //
+const sourcemaps = require('gulp-sourcemaps');   //
+const rename = require('gulp-rename');       // Подключаем библиотеку для переименования файлов
+const concat = require('gulp-concat');       // Подключаем gulp-concat (для конкатенации файлов/собирает воедино)
+const uglify = require('gulp-uglify');       // Подключаем gulp-uglify (для сжатия JS)
+const imagemin = require('gulp-imagemin');     // Подключаем библиотеку для работы с изображениями
+const pngquant = require('imagemin-pngquant'); // Подключаем библиотеку для работы с png
+const rigger = require('gulp-rigger');       //= test.html //= test.js /*= includes/test.css */
+const del = require('del');               // Подключаем библиотеку для удаления файлов и папок
+const cache = require('gulp-cache');        // Подключаем библиотеку кеширования
+const watch = require('gulp-watch');
+const browserSync = require('browser-sync');      // Подключаем Browser Sync
+const reload = browserSync.reload;
+const {phpMinify} = require('@cedx/gulp-php-minify');
 
 // Настройки проекта
 let project = {
@@ -33,29 +33,29 @@ let dist = 'dist';
 let orgn = 'src';
 let path = {
     build: { // Тут мы укажем куда складывать готовые после сборки файлы
-        js:   dist + '/js/',
-        css:  dist + '/css/',
-        img:  dist + '/images/',
+        js: dist + '/js/',
+        css: dist + '/css/',
+        img: dist + '/images/',
         font: dist + '/fonts/'
     },
     dev: { // Пути откуда брать исходники
-        php:  orgn + '/**/*.php',
+        php: orgn + '/**/*.php',
         html: orgn + '/**/*.html',                      // Синтаксис dev/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-        js:   orgn + '/js/'   + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
+        js: orgn + '/js/' + project.name + '.js',   // В стилях и скриптах нам понадобятся только main файлы
         scss: orgn + '/scss/' + project.name + '.scss', // dev/sass/**/*.sass
         less: orgn + '/less/' + project.name + '.less',
-        css:  orgn + '/css/',
-        img:  orgn + '/images/**/*.+(png|gif|jpg|svg)', // Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+        css: orgn + '/css/',
+        img: orgn + '/images/**/*.+(png|gif|jpg|svg)', // Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         font: orgn + '/fonts/**/*.+(ttf|woff|woff2|eot|otf|svg)'
     },
     watch: { // Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        php:  orgn + '/**/*.php',
+        php: orgn + '/**/*.php',
         html: orgn + '/**/*.html',
-        js:   orgn + '/js/**/*.js',
-        css:  orgn + '/css/**/*.css',
+        js: orgn + '/js/**/*.js',
+        css: orgn + '/css/**/*.css',
         scss: orgn + '/scss/**/*.scss',
         less: orgn + '/less/**/*.less',
-        img:  orgn + '/images/**/*.*',
+        img: orgn + '/images/**/*.*',
         font: orgn + '/fonts/**/*.*'
     }
 };
@@ -65,15 +65,15 @@ let config = {
     server: {
         baseDir: dist
     },
-    host:      'localhost',
-    port:      9000,
+    host: 'localhost',
+    port: 9000,
     logPrefix: project.name,
-    tunnel:    true,
-    notify:    false
+    tunnel: true,
+    notify: false
 };
 
 // Собираем php
-gulp.task('php:build', function() {
+gulp.task('php:build', function () {
     return gulp.src(path.dev.php, {read: false}) // Выберем файлы по нужному пути
         .pipe(phpMinify({silent: true}))         // Сожмем
         .pipe(gulp.dest(dist))                   // Выплюнем их в папку build
@@ -81,7 +81,7 @@ gulp.task('php:build', function() {
 });
 
 // Собираем html
-gulp.task('html:build', function() {
+gulp.task('html:build', function () {
     return gulp.src([path.dev.html, '!' + orgn + '/scss/**/*.html', '!' + orgn + '/less/**/*.html']) // Выберем файлы по нужному пути
         .pipe(rigger())                   // Прогоним через rigger
         .pipe(htmlmin({ // Сожмем
@@ -113,7 +113,7 @@ gulp.task('js:build', () => {
 
 // Собираем стили
 gulp.task('scss:dev', () => {
-    del(path.dev.css + '**/*.css', {force:true});
+    del(path.dev.css + '**/*.css', {force: true});
     return gulp
         .src(path.dev.scss)              // Выберем наш scss-файл
         .pipe(sass())                    // Скомпилируем
@@ -128,7 +128,7 @@ gulp.task('scss:dev', () => {
         .pipe(gulp.dest(path.dev.css));  // И в build
 });
 
-gulp.task('scss:build', function() {
+gulp.task('scss:build', function () {
     return gulp
         .src(path.dev.scss)               // Выберем наш scss-файл
         .pipe(sourcemaps.init())          // Инициализируем sourcemap
@@ -142,7 +142,7 @@ gulp.task('scss:build', function() {
 });
 
 function RunGulpSass(src, dest) {
-    return gulp.watch(watch, function() {
+    return gulp.watch(watch, function () {
         return gulp
             .src(src)               // Выберем наш scss-файл
             .pipe(sourcemaps.init())          // Инициализируем sourcemap
@@ -160,7 +160,7 @@ function RunGulpSass(src, dest) {
 }
 
 // Собираем картинки
-gulp.task('image:build', function() {
+gulp.task('image:build', function () {
     return gulp.src(path.dev.img)        // Выберем наши картинки
         .pipe(cache(imagemin({           // Сожмем их
             progressive: true,
@@ -173,51 +173,51 @@ gulp.task('image:build', function() {
 });
 
 // Шрифты
-gulp.task('font:build', function() {
+gulp.task('font:build', function () {
     return gulp.src(path.dev.font)
         .pipe(gulp.dest(path.build.font))
         .pipe(reload({stream: true}));   // И перезагрузим сервер
 });
 
 // Очистка кэша
-gulp.task('clear', function() {
+gulp.task('clear', function () {
     return cache.clearAll();
 });
 
 // Удаляем папку build
-gulp.task('clean', function() {
-    return del(dist, {force:true});
+gulp.task('clean', function () {
+    return del(dist, {force: true});
 });
 
 // Таск с именем «build», который буsдет запускать все
-gulp.task('build', gulp.parallel('php:build', 'html:build', 'js:build', 'scss:build', 'image:build', 'font:build', function() {
+gulp.task('build', gulp.parallel('php:build', 'html:build', 'js:build', 'scss:build', 'image:build', 'font:build', function () {
     return gulp.src(orgn + '/*.ico')   // Выберем файлы по нужному пути
         .pipe(gulp.dest(dist))         // Выплюнем их в папку build
         .pipe(reload({stream: true})); // И перезагрузим сервер
 }));
 
 // Веб сервер
-gulp.task('webserver', function() {
+gulp.task('webserver', function () {
     browserSync(config);
 });
 
 // Изменения файлов
 // Чтобы не лазить все время в консоль давайте попросим gulp каждый раз при изменении какого то файла запускать нужную задачу.
 // Для этого напишет такой таск:
-gulp.task('watch', function() {
-    watch([path.watch.html], function() {
+gulp.task('watch', function () {
+    watch([path.watch.html], function () {
         return gulp.start('html:build');
     });
-    watch([path.watch.js], function() {
+    watch([path.watch.js], function () {
         return gulp.start('js:build');
     });
-    watch([path.watch.scss], function() {
+    watch([path.watch.scss], function () {
         return gulp.start('scss:build');
     });
-    watch([path.watch.img], function() {
+    watch([path.watch.img], function () {
         return gulp.start('image:build');
     });
-    watch([path.watch.font], function() {
+    watch([path.watch.font], function () {
         return gulp.start('font:build');
     });
 });
@@ -327,7 +327,6 @@ gulp.task('less', function() {
         .pipe(prefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
         .pipe(gulp.dest('dev/css')); // Выгружаем результата в папку dev/css
 });*/
-
 
 
 /*gulp.task('browser-sync', function() { // Создаем таск browser-sync

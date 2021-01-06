@@ -5,128 +5,145 @@
  ******************************************************************************/
 
 %display-block {
-    display: block;
+  display: block;
 }
+
 %display-flex {
-    display: flex;
+  display: flex;
 }
+
 %display-grid {
-    display: grid;
+  display: grid;
 }
+
 %display-none {
-    display: none;
+  display: none;
 }
+
 .grid {
-    @extend %display-grid;
-    grid-template-columns: repeat($grid, minmax(0, 1fr));
-    grid-template-rows: auto;
+  @extend %display-grid;
+  grid-template-columns: repeat($grid, minmax(0, 1fr));
+  grid-template-rows: auto;
 }
+
 .row {
-    @extend %display-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    > .head {
-    }
-    > .body {
-        flex-grow: 1;
-        flex-shrink: 0;
-    }
-    > .foot {
-    }
+  @extend %display-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  > .head {
+  }
+
+  > .body {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  > .foot {
+  }
 }
+
 .col {
-    @extend %display-flex;
-    flex-direction: column;
+  @extend %display-flex;
+  flex-direction: column;
 }
+
 .bar {
-    display: inline-grid;
-    grid-auto-flow: column;
-    align-items: center;
-    .row > &, .col > & {
-        @extend %display-grid;
-    }
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+
+  .row > &, .col > & {
+    @extend %display-grid;
+  }
 }
 
 /***************************************
   Cell
  ***************************************/
 @mixin cell-width($w) {
-    $j: $w / $grid;
-    @for $i from 1 through $grid {
-        .cell-#{$i} {
-            $k: $i * $j;
-            width:     $k;
-            max-width: $k;
-        }
+  $j: $w / $grid;
+  @for $i from 1 through $grid {
+    .cell-#{$i} {
+      $k: $i * $j;
+      width: $k;
+      max-width: $k;
     }
+  }
 }
+
 @include cell-width($layout-width);
 @if $layout-width != 100vw {
-    @media only screen and (max-width: $layout-width) {
-        @include cell-width(100vw);
-    }
+  @media only screen and (max-width: $layout-width) {
+    @include cell-width(100vw);
+  }
 }
 
 /*** Grid Cell ***/
 .grid > [class*="cell-"] {
-    width: auto;
-    max-width: none;
+  width: auto;
+  max-width: none;
 }
+
 @for $i from 1 through $grid {
-    .grid > .cell-#{$i} {
-        grid-column: span $i;
-    }
+  .grid > .cell-#{$i} {
+    grid-column: span $i;
+  }
 }
+
 $s: ($layout-width - $layout-width-min) / $grid;
 @for $i from $grid to 1 {
-    $k: $i - 1;
-    @media only screen and (max-width: round($layout-width - ($grid - $k) * $s)) {
-        .grid {
-            grid-template-columns: repeat($k, minmax(0, 1fr));
-            > %cell-#{$i} {
-                grid-column: span $k;
-            }
-        }
-        @for $j from $i through $grid {
-            .cell-#{$j} {
-                @extend %cell-#{$i};
-            }
-        }
+  $k: $i - 1;
+  @media only screen and (max-width: round($layout-width - ($grid - $k) * $s)) {
+    .grid {
+      grid-template-columns: repeat($k, minmax(0, 1fr));
+
+      > %cell-#{$i} {
+        grid-column: span $k;
+      }
     }
+    @for $j from $i through $grid {
+      .cell-#{$j} {
+        @extend %cell-#{$i};
+      }
+    }
+  }
 }
 
 /***************************************
   Tile
  ***************************************/
 @media only screen and (min-width: 0) {
+  .tile > * {
+    width: 100%;
+  }
+  @for $i from 1 through $grid {
+    .tile-#{$i} > * {
+      $j: 100% / $i;
+      width: $j;
+      max-width: $j;
+    }
+  }
+}
+
+@for $i from 1 through $grid {
+  @media only screen and (min-width: (120px + $i*120px)) {
     .tile > * {
-        width: 100%;
+      $j: 100% / ($i + 1);
+      width: $j;
+      max-width: $j;
     }
-    @for $i from 1 through $grid {
-        .tile-#{$i} > * {
-            $j: 100% / $i;
-            width:     $j;
-            max-width: $j;
-        }
-    }
+  }
 }
+
 @for $i from 1 through $grid {
-    @media only screen and (min-width: (120px + $i*120px)) {
-        .tile > * {
-            $j: 100% / ($i + 1);
-            width:     $j;
-            max-width: $j;
-        }
+  @for $j from 1 through 6*$i {
+    @media only screen and (min-width: round($layout-width-min + $j * $layout-width-min / $i)) {
+      .tile-#{$i} > * {
+        $k: 100% / ($i + $j);
+        width: $k;
+        max-width: $k;
+      }
     }
-}
-@for $i from 1 through $grid {
-    @for $j from 1 through 6*$i {
-        @media only screen and (min-width: round($layout-width-min + $j * $layout-width-min / $i)) {
-            .tile-#{$i} > * {
-                $k: 100% / ($i + $j);
-                width:     $k;
-                max-width: $k;
-            }
-        }
-    }
+  }
 }
