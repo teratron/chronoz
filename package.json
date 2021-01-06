@@ -19,10 +19,11 @@
     "html",
     "framework",
     "front-end",
-    "responsive"
+    "responsive",
+    "adaptive"
   ],
   "author": {
-    "name": "Alexandrov Oleg",
+    "name": "Oleg Alexandrov",
     "url": "https://github.com/teratron/chronoz/issues",
     "github": "https://github.com/teratron",
     "email": "alexandrovoleg.ru@gmail.com"
