@@ -1,0 +1,435 @@
+//***************************************
+// Variables
+//***************************************
+@import "namespace.less";
+
+@import "variables.less";
+/*
+#color() {
+    brand:           #27a4c4;
+    brand_dark:      #246d8d;
+    brand_light:     #2bbfe0;
+
+    primary:         #27a4c4;
+    primary_dark:    #246d8d;
+    primary_light:   #2bbfe0;
+
+    secondary:       #9cb0af;
+    secondary_dark:  #9cb0af;
+    secondary_light: #9cb0af;
+
+    accent:          #fe8325;
+    accent_dark:     #fe4a00;
+    accent_light:    #fe9f61;
+
+    bright:          orange;
+    bright_dark:     orange;
+    bright_light:    orange;
+
+    dark:            #485a68;
+    light:           #acc0bf;
+
+    gray:            #999;
+    gray_dark:       #333;
+    gray_light:      #ccc;
+
+    error:           red;
+    success:         green;
+    warning:         #f1c101;
+    notice:          blue;
+    tips:            rgba(0,0,0,.8);
+    lucid:           rgba(0,0,0,.3);
+}
+.@{button} {
+    color: #color[primary];
+    border: 1px solid #color[secondary];
+}*/
+
+
+@color_brand:           #27a4c4;
+@color_brand_dark:      #246d8d;
+@color_brand_light:     #2bbfe0;
+
+@color_primary:         #27a4c4;
+@color_primary_dark:    #246d8d;
+@color_primary_light:   #2bbfe0;
+
+@color_secondary:       #9cb0af;
+@color_secondary_dark:  #9cb0af;
+@color_secondary_light: #9cb0af;
+
+@color_accent:          #fe8325;
+@color_accent_dark:     #fe4a00;
+@color_accent_light:    #fe9f61;
+
+@color_bright:          orange;
+@color_bright_dark:     orange;
+@color_bright_light:    orange;
+
+@color_dark:            #485a68;
+@color_light:           #acc0bf;
+
+@color_gray:            #999;
+@color_gray_dark:       #333;
+@color_gray_light:      #ccc;
+
+@color_error:           red;
+@color_success:         green;
+@color_warning:         #f1c101;
+@color_notice:          blue;
+@color_tips:            rgba(0,0,0,.8);
+@color_lucid:           rgba(0,0,0,.3);
+
+/***************************************
+  Commons
+ ***************************************/
+body, input, output, select, textarea {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+cite, q {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+pre, code, kbd, samp, var, cite {
+    font-family: 'Lucida Console', Consolas, Monaco, 'Courier New', Courier, monospace;
+}
+mark {
+    background-color: @color_accent;
+    color: #999;
+}
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {
+    color: #152f00;
+}
+.lucid {
+    color: @color_lucid;
+}
+
+/***************************************
+  Layout
+ ***************************************/
+body {
+    background-color: #fff;
+}
+header {
+    background-color: @color_brand;
+    > .@{inner} {
+        background-color: @color_brand;
+        color: #fff;
+    }
+}
+main {
+    background-color: #fff;
+    > .@{inner} {
+        background-color: #f7f7f7;
+    }
+}
+footer {
+    background-color: #cbffac;
+    > .@{inner} {
+        background-color: #ddd;
+        color: #999;
+    }
+}
+
+/***************************************
+  Drawer
+ ***************************************/
+.@{pre}drawer {
+    background-color: @color_dark;
+    color: #fff;
+}
+
+/***************************************
+  Dialog
+ ***************************************/
+.dialog {
+    background-color: #fff;
+    color: #333;
+    overflow: hidden;
+    border-radius: .3rem;
+    box-shadow: 0 .8rem 2.4rem -.4rem rgba(0,0,0,.33);
+}
+
+/***************************************
+  Card
+ ***************************************/
+.card {
+    background-color: #fff;
+    color: #333;
+    overflow: hidden;
+    border-radius: .2rem;
+    box-shadow: 0 .2rem .4rem -.1rem rgba(0,0,0,.33);
+}
+
+/***************************************
+  Panel
+ ***************************************/
+.panel {
+    background-color: #fff;
+    color: #333;
+    box-shadow: .1rem .1rem 0 rgba(0,0,0,.08);
+}
+
+/***************************************
+  Button
+ ***************************************/
+.@{button} {
+    background-color: @color_brand;
+    color: #fff;
+    &:hover {
+        background-color: @color_brand_light;
+        border-color:     @color_brand_light;
+        box-shadow: 0 .1rem .2rem 0 rgba(0,0,0,.2);
+    }
+    &:active {
+        background-color: @color_brand_dark;
+        border-color:     @color_brand_dark;
+        box-shadow: 0 .1rem .2rem 0 rgba(0,0,0,.2) inset;
+    }
+    &.flat,
+    &.border {
+        background-color: transparent;
+        color: @color_brand;
+        box-shadow: none;
+    }
+}
+.@{button}, .border {
+    border-color: @color_brand;
+}
+
+/***************************************
+  Badge
+ ***************************************/
+.@{badge} {
+    background-color: @color_accent;
+    color: #fff;
+    box-shadow: 0 .1rem .2rem 0 rgba(0,0,0,.2);
+}
+
+/***************************************
+  Label
+ ***************************************/
+.@{label} {
+    background-color: @color_success;
+    color: #fff;
+    box-shadow: .1rem .1rem 0 rgba(0,0,0,.08);
+}
+
+/***************************************
+  Tooltip
+ ***************************************/
+.@{tooltip} {
+    background-color: @color_tips;
+    color: #fff;
+}
+
+/***************************************
+  Snackbar
+ ***************************************/
+.@{snackbar} {
+    background-color: @color_tips;
+    color: #fff;
+}
+
+/***************************************
+  Divider / Separate
+ ***************************************/
+hr {
+    color: rgba(0,0,0,.12);
+}
+hr, .@{separator},
+.@{divider} > *,
+.@{divider}.@{table}:not(.@{row}) > * > * {
+    border-color: rgba(0,0,0,.12);
+}
+
+/***************************************
+  Form
+ ***************************************/
+.@{radio}, .@{check}, .@{toggle} {
+    &:after {
+        background-color: @color_brand;
+    }
+}
+.@{radio}:before,
+.@{check}:before,
+.@{toggle}:before,
+select, textarea,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="number"],
+input[type="time"],
+input[type="month"],
+input[type="week"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"] {
+    background-color: #fff;
+    border-color: @color_brand;
+}
+
+/***************************************
+  Backgrounds (bg or bg-... important)
+ ***************************************/
+.@{back} {
+    background-color: inherit;
+}
+
+/*** Brand ***/
+.@{back}-brand {
+    background-color: @color_brand !important;
+    color: #fff;
+}
+.@{back}-brand-light {
+    background-color: @color_brand_light !important;
+    color: #fff;
+}
+.@{back}-brand-dark {
+    background-color: @color_brand_dark !important;
+    color: #fff;
+}
+
+/*** Accent ***/
+.@{back}-accent {
+    background-color: @color_accent !important;
+    color: #fff;
+}
+.@{back}-accent-light {
+    background-color: @color_accent_light !important;
+    color: #fff;
+}
+.@{back}-accent-dark {
+    background-color: @color_accent_dark !important;
+    color: #fff;
+}
+
+/*** Dark ***/
+.@{back}-dark {
+    background-color: @color_dark !important;
+    color: #fff;
+}
+
+/*** Light ***/
+.@{back}-light {
+    background-color: @color_light !important;
+    color: #fff;
+}
+
+/*** Bright ***/
+.@{back}-secondary {
+    background-color: @color_bright !important;
+    color: #fff;
+}
+
+/*** Secondary ***/
+.@{back}-secondary {
+    background-color: @color_secondary !important;
+    color: #fff;
+}
+
+/*** Gray ***/
+.@{back}-gray {
+    background-color: @color_gray !important;
+    color: #fff;
+    a:not(.@{button}) {
+        color: #8b9298;
+        &:hover {
+            color: #2a3644;
+        }
+    }
+    .@{divider} {
+        background-color: #ddd !important;
+        border-color:     #ddd !important;
+    }
+}
+.@{back}-gray-light {
+    background-color: @color_gray_light !important;
+    color: #213140;
+    a:not(.@{button}) {
+        color: #37455b;
+        &:hover {
+            color: #582b5b;
+        }
+    }
+    .@{divider} {
+        background-color: #d4d9dd !important;
+        border-color:     #d4d9dd !important;
+    }
+}
+.@{back}-gray-dark {
+    background-color: @color_gray_dark !important;
+    color: #fff;
+    a:not(.@{button}) {
+        color: #fff;
+        &:hover {
+            color: #fff;
+        }
+    }
+    .@{divider} {
+        background-color: #d4d9dd !important;
+        border-color:     #d4d9dd !important;
+    }
+}
+
+/*** Error/Red ***/
+.@{back}-error {
+    background-color: @color_error !important;
+    color: #fff;
+}
+
+/*** Success/Green ***/
+.@{back}-success {
+    background-color: @color_success !important;
+    color: #fff;
+}
+
+/*** Notice/Blue ***/
+.@{back}-warning {
+    background-color: @color_notice !important;
+    color: #fff;
+}
+
+/*** Tips/Black ***/
+.@{back}-tips {
+    background-color: @color_tips !important;
+    color: #fff;
+}
+
+/***************************************
+  Shadows
+ ***************************************/
+
+
+/***************************************
+  Fonts
+ ***************************************/
+@font-face {
+    font-family: 'Roboto';
+    src: url("@{fonts}/Roboto/Roboto-Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style:  normal;
+}
+@font-face {
+    font-family: 'RobotoLight';
+    src: url("@{fonts}/Roboto/Roboto-Light.ttf") format('truetype');
+    font-weight: normal;
+    font-style:  normal;
+}
+@font-face {
+    font-family: 'RobotoThin';
+    src: url("@{fonts}/Roboto/Roboto-Thin.ttf") format('truetype');
+    font-weight: normal;
+    font-style:  normal;
+}
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url("@{fonts}/Roboto/Roboto-Medium.ttf") format('truetype');
+    font-weight: normal;
+    font-style:  normal;
+}

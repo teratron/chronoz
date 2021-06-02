@@ -1,0 +1,26 @@
+/******************************************************************************
+  Groove
+  -----------------------------------------------------------------------------
+  gr
+  gr_[1...20]
+ ******************************************************************************/
+[class*="@{groove}"] > [class*="@{cell}"] {
+    box-sizing: content-box;
+}
+.@{groove}, .@{groove}_1 {
+    margin: -@layout_gap_half;
+    > * {
+        padding: @layout_gap_half;
+    }
+}
+.generate-groove(8);
+.generate-groove(@n, @i: 2) when (@i =< @n) {
+    @y: @i*@layout_gap_half;
+    .@{groove}_@{i} {
+        margin: -@y;
+        > * {
+            padding: @y;
+        }
+    }
+    .generate-groove(@n, (@i + 1));
+}

@@ -1,0 +1,451 @@
+/******************************************************************************
+  Adaptive
+  -----------------------------------------------------------------------------
+  col_[1...6]
+  row_[1...6]
+  sld_[1...6]
+
+  on_[1...6]      off_[1...6]
+  in_[1...6]      out_[1...6]
+  show_[1...6]   hide_[1...6]
+  -----------------------------------------------------------------------------
+   1     2     3     4     5     6      7      8      9
+  360   480   600   720   840   960   1080   1200   1320
+  360   540   720   900   1080  1260  1440
+  360   560   760   960   1160  1360
+  360   600   840   1080  1320
+ ******************************************************************************/
+.for-media-trigger(1);
+.for-media-trigger(@n, @i: 6) when (@i >= @n) {
+    @media only screen and (max-width: (@i*180px + 180px)) {
+        .@{solid}_@{i} {
+            width:     100% !important;
+            min-width: 100% !important;
+            max-width: 100% !important;
+        }
+        .@{col}_@{i}.@{divider}:not(.@{list}) > :not(:only-child):not(:first-child):not([class*="@{back}"]),
+        .@{col}_@{i}.@{divider}.@{list}       > :not(:only-child):not(:first-child):not([class*="@{back}"]) > * {
+            border-top-style: solid !important;
+            border-left-style: none !important;
+        }
+        .@{col}_@{i}.@{divider}:not(.@{list}) > [class*="@{back}"] + * {
+            border-top: 0 none !important;
+        }
+        .@{col}_@{i} > * {
+            margin-left:  0    !important;
+            margin-right: 0    !important;
+            position: relative !important;
+            top:    auto       !important;
+            bottom: auto       !important;
+            left:   auto       !important;
+            right:  auto       !important;
+        }
+        .@{block}.@{on}_@{i},
+        .@{block}.@{col}_@{i} > * {
+            display: block !important;
+        }
+        .@{row}_@{i} > * {
+            margin-top:    0 !important;
+            margin-bottom: 0 !important;
+        }
+        .@{block}.@{row}_@{i} > *,
+        .@{block}.@{row}_@{i}.@{right}@{child} > .@{left} {
+            float: left !important;
+        }
+        .@{block}.@{row}_@{i} > .@{right},
+        .@{block}.@{row}_@{i}.@{right}@{child} > *  {
+            float: right !important;
+        }
+        .@{row}_@{i} > *,
+        .@{col}_@{i} > *,
+        .@{table}.@{col}_@{i} > * > @{tagless} {
+            float: none !important;
+        }
+        .@{row}_@{i} > :not([class*="@{cell}"]),
+        .@{table}.@{col}_@{i} > * > @{tagless} {
+            width: auto !important;
+        }
+        .@{table}.@{on}_@{i} {
+            display: table !important;
+        }
+        .@{table}.@{col}_@{i} > * {
+            display: table-row-group !important;
+        }
+        .@{table}.@{row}_@{i} > *,
+        .@{table}.@{col}_@{i} > * > @{tagless} {
+            display: table-cell !important;
+        }
+        .@{col}_@{i},
+        .@{row}_@{i}.@{list} > * {
+            flex-direction: column !important;
+        }
+        .@{row}_@{i},
+        .@{col}_@{i}.@{list} > * {
+            flex-direction: row !important;
+        }
+        .@{on}_@{i} {
+            display: flex !important;
+        }
+        .@{off}_@{i} {
+            display: none !important;
+        }
+        .@{show}_@{i} {
+            visibility: visible !important;
+            opacity:          1 !important;
+        }
+        .@{hide}_@{i} {
+            visibility: hidden !important;
+            opacity:         0 !important;
+        }
+        .@{in}_@{i} {
+            top:        auto !important;
+            left:       auto !important;
+            z-index: inherit !important;
+        }
+        .@{in}_@{i}:not(.@{fixed}):not(.@{absolute}):not(.@{sticky}) {
+            position: relative !important;
+        }
+        .@{in}_@{i}.@{absolute} {
+            position: absolute !important;
+        }
+        .@{out}_@{i}, .@{in}_@{i}.@{fixed} {
+            position: fixed !important;
+        }
+        .@{out}_@{i} {
+            top:  -100% !important;
+            left: -100% !important;
+            z-index: -1 !important;
+        }
+
+        /* Adaptive Gap
+         ***************************************/
+        .@{gap}@{child}.@{row}_@{i} > .@{head},
+        .@{gap}@{child}.@{row}_@{i} > .@{body},
+        .@{gap}@{child}.@{row}_@{i} > .@{foot},
+        .@{gap}@{child}.@{row}_@{i}.@{list} > * > :not(:first-child),
+        .@{gap}@{child}.@{col}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:first-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}.@{col}_@{i}.@{list}[class*="@{back}"] > * > *,
+        .@{gap}@{child}.@{col}_@{i}.@{list}.@{divider} > * > *,
+        .@{gap}@{child}_1.@{row}_@{i} > .@{head},
+        .@{gap}@{child}_1.@{row}_@{i} > .@{body},
+        .@{gap}@{child}_1.@{row}_@{i} > .@{foot},
+        .@{gap}@{child}_1.@{row}_@{i}.@{list} > * > :not(:first-child),
+        .@{gap}@{child}_1.@{col}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:first-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}_1.@{col}_@{i}.@{list}[class*="@{back}"] > * > *,
+        .@{gap}@{child}_1.@{col}_@{i}.@{list}.@{divider} > * > * {
+            padding-top: .5rem !important;
+        }
+        .@{gap}@{child}.@{row}_@{i} > .@{head},
+        .@{gap}@{child}.@{row}_@{i} > .@{body},
+        .@{gap}@{child}.@{row}_@{i} > .@{foot},
+        .@{gap}@{child}.@{row}_@{i}.@{list} > * > :not(:last-child),
+        .@{gap}@{child}.@{col}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:last-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}.@{col}_@{i}.@{list}[class*="@{back}"]  > * > *,
+        .@{gap}@{child}.@{col}_@{i}.@{list}.@{divider} > * > *,
+        .@{gap}@{child}_1.@{row}_@{i} > .@{head},
+        .@{gap}@{child}_1.@{row}_@{i} > .@{body},
+        .@{gap}@{child}_1.@{row}_@{i} > .@{foot},
+        .@{gap}@{child}_1.@{row}_@{i}.@{list} > * > :not(:last-child),
+        .@{gap}@{child}_1.@{col}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:last-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}_1.@{col}_@{i}.@{list}[class*="@{back}"]  > * > *,
+        .@{gap}@{child}_1.@{col}_@{i}.@{list}.@{divider} > * > * {
+            padding-bottom: .5rem !important;
+        }
+        .@{gap}@{child}.@{row}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:first-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}.@{row}_@{i}.@{list} > :not(:first-child) > *,
+        .@{gap}@{child}.@{col}_@{i}.@{list} > * > :not(:first-child),
+        .@{gap}@{child}_1.@{row}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:first-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}_1.@{row}_@{i}.@{list} > :not(:first-child) > *,
+        .@{gap}@{child}_1.@{col}_@{i}.@{list} > * > :not(:first-child) {
+            padding-left: .5rem !important;
+        }
+        .@{gap}@{child}.@{row}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:last-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}.@{row}_@{i}.@{list} > :not(:last-child) > *,
+        .@{gap}@{child}.@{col}_@{i}.@{list} > * > :not(:last-child),
+        .@{gap}@{child}_1.@{row}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:last-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}_1.@{row}_@{i}.@{list} > :not(:last-child) > *,
+        .@{gap}@{child}_1.@{col}_@{i}.@{list} > * > :not(:last-child) {
+            padding-right: .5rem !important;
+        }
+        .@{gap}@{child}.@{col}_@{i} > .@{head},
+        .@{gap}@{child}.@{col}_@{i} > .@{body},
+        .@{gap}@{child}.@{col}_@{i}[class*="@{back}"] > .@{foot},
+        .@{gap}@{child}.@{col}_@{i} > .@{foot}[class*="@{back}"],
+        .@{gap}@{child}.@{col}_@{i}:not(.@{list}) > .@{foot}[class*="@{back}"] + .@{foot},
+        .@{gap}@{child}.@{col}_@{i}[class*="@{gutter}@{child}"] > *,
+        .@{gap}@{child}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > :first-child,
+        .@{gap}@{child}.@{col}_@{i}.@{divider}:not(.@{list}) > :not(:first-child),
+        .@{gap}@{child}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}.@{row}_@{i}.@{list}[class*="@{back}"] > * > :first-child,
+        .@{gap}@{child}_1.@{col}_@{i} > .@{head},
+        .@{gap}@{child}_1.@{col}_@{i} > .@{body},
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{back}"] > .@{foot},
+        .@{gap}@{child}_1.@{col}_@{i} > .@{foot}[class*="@{back}"],
+        .@{gap}@{child}_1.@{col}_@{i}:not(.@{list}) > .@{foot}[class*="@{back}"] + .@{foot},
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{gutter}@{child}"] > *,
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > :first-child,
+        .@{gap}@{child}_1.@{col}_@{i}.@{divider}:not(.@{list}) > :not(:first-child),
+        .@{gap}@{child}_1.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}_1.@{row}_@{i}.@{list}[class*="@{back}"] > * > :first-child {
+            padding-top: 1rem !important;
+        }
+        .@{gap}@{child}.@{col}_@{i} > .@{body},
+        .@{gap}@{child}.@{col}_@{i} > .@{foot},
+        .@{gap}@{child}.@{col}_@{i}[class*="@{back}"] > .@{head},
+        .@{gap}@{child}.@{col}_@{i} > .@{head}[class*="@{back}"],
+        .@{gap}@{child}.@{col}_@{i}[class*="@{gutter}@{child}"] > *,
+        .@{gap}@{child}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > :last-child,
+        .@{gap}@{child}.@{col}_@{i}.@{divider}:not(.@{list}) > :not(:last-child),
+        .@{gap}@{child}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}.@{row}_@{i}.@{list}[class*="@{back}"] > * > :last-child,
+        .@{gap}@{child}_1.@{col}_@{i} > .@{body},
+        .@{gap}@{child}_1.@{col}_@{i} > .@{foot},
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{back}"] > .@{head},
+        .@{gap}@{child}_1.@{col}_@{i} > .@{head}[class*="@{back}"],
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{gutter}@{child}"] > *,
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > :last-child,
+        .@{gap}@{child}_1.@{col}_@{i}.@{divider}:not(.@{list}) > :not(:last-child),
+        .@{gap}@{child}_1.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :not(.@{head}):not(.@{body}):not(.@{foot}),
+        .@{gap}@{child}_1.@{row}_@{i}.@{list}[class*="@{back}"] > * > :last-child {
+            padding-bottom: 1rem !important;
+        }
+        .@{gap}@{child}.@{col}_@{i} > .@{foot},
+        .@{gap}@{child}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > *,
+        .@{gap}@{child}.@{col}_@{i}.@{list}[class*="@{back}"] > * > :first-child,
+        .@{gap}@{child}.@{row}_@{i}:not(.@{list}) > .@{foot}[class*="@{back}"] + .@{foot},
+        .@{gap}@{child}.@{row}_@{i}[class*="@{gutter}@{child}"]:not(.@{list}) > *,
+        .@{gap}@{child}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :first-child,
+        .@{gap}@{child}.@{row}_@{i}.@{divider}:not(.@{list}) > :not(:first-child),
+        .@{gap}@{child}.@{row}_@{i}.@{list}[class*="@{back}"] > :first-child > *,
+        .@{gap}@{child}.@{row}_@{i}.@{list}.@{divider} > :not(:first-child) > *,
+        .@{gap}@{child}_1.@{col}_@{i} > .@{foot},
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > *,
+        .@{gap}@{child}_1.@{col}_@{i}.@{list}[class*="@{back}"] > * > :first-child,
+        .@{gap}@{child}_1.@{row}_@{i}:not(.@{list}) > .@{foot}[class*="@{back}"] + .@{foot},
+        .@{gap}@{child}_1.@{row}_@{i}[class*="@{gutter}@{child}"]:not(.@{list}) > *,
+        .@{gap}@{child}_1.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :first-child,
+        .@{gap}@{child}_1.@{row}_@{i}.@{divider}:not(.@{list}) > :not(:first-child),
+        .@{gap}@{child}_1.@{row}_@{i}.@{list}[class*="@{back}"] > :first-child > *,
+        .@{gap}@{child}_1.@{row}_@{i}.@{list}.@{divider} > :not(:first-child) > * {
+            padding-left: 1rem !important;
+        }
+        .@{gap}@{child}.@{col}_@{i} > .@{head},
+        .@{gap}@{child}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > *,
+        .@{gap}@{child}.@{col}_@{i}.@{list}[class*="@{back}"] > * > :last-child,
+        .@{gap}@{child}.@{row}_@{i}[class*="@{gutter}@{child}"]:not(.@{list}) > *,
+        .@{gap}@{child}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :last-child,
+        .@{gap}@{child}.@{row}_@{i}.@{divider}:not(.@{list}) > :not(:last-child),
+        .@{gap}@{child}.@{row}_@{i}.@{list}[class*="@{back}"] > :last-child > *,
+        .@{gap}@{child}.@{row}_@{i}.@{list}.@{divider} > :not(:last-child) > *,
+        .@{gap}@{child}_1.@{col}_@{i} > .@{head},
+        .@{gap}@{child}_1.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > *,
+        .@{gap}@{child}_1.@{col}_@{i}.@{list}[class*="@{back}"] > * > :last-child,
+        .@{gap}@{child}_1.@{row}_@{i}[class*="@{gutter}@{child}"]:not(.@{list}) > *,
+        .@{gap}@{child}_1.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :last-child,
+        .@{gap}@{child}_1.@{row}_@{i}.@{divider}:not(.@{list}) > :not(:last-child),
+        .@{gap}@{child}_1.@{row}_@{i}.@{list}[class*="@{back}"] > :last-child > *,
+        .@{gap}@{child}_1.@{row}_@{i}.@{list}.@{divider} > :not(:last-child) > * {
+            padding-right: 1rem !important;
+        }
+
+        /*** Gap 1-8 ***/
+        .for-gap-media-toggle-to(8);
+        .for-gap-media-toggle-to(@k, @j: 2) when (@j =< @k) {
+            .@{gap}@{child}_@{j}.@{row}_@{i} > .@{head},
+            .@{gap}@{child}_@{j}.@{row}_@{i} > .@{body},
+            .@{gap}@{child}_@{j}.@{row}_@{i} > .@{foot},
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list} > * > :not(:first-child),
+            .@{gap}@{child}_@{j}.@{col}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:first-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list}[class*="@{back}"] > * > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list}.@{divider} > * > * {
+                padding-top: @j*.5rem !important;
+            }
+            .@{gap}@{child}_@{j}.@{row}_@{i} > .@{head},
+            .@{gap}@{child}_@{j}.@{row}_@{i} > .@{body},
+            .@{gap}@{child}_@{j}.@{row}_@{i} > .@{foot},
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list} > * > :not(:last-child),
+            .@{gap}@{child}_@{j}.@{col}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:last-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list}[class*="@{back}"]  > * > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list}.@{divider} > * > * {
+                padding-bottom: @j*.5rem !important;
+            }
+            .@{gap}@{child}_@{j}.@{row}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:first-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list} > :not(:first-child) > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list} > * > :not(:first-child) {
+                padding-left: @j*.5rem !important;
+            }
+            .@{gap}@{child}_@{j}.@{row}_@{i}:not(.@{list}):not(.@{divider}):not([class*="@{gutter}@{child}"]) > :not(:last-child):not(.@{head}):not(.@{body}):not(.@{foot}),
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list} > :not(:last-child) > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list} > * > :not(:last-child) {
+                padding-right: @j*.5rem !important;
+            }
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{head},
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{body},
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > .@{foot},
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{foot}[class*="@{back}"],
+            .@{gap}@{child}_@{j}.@{col}_@{i}:not(.@{list}) > .@{foot}[class*="@{back}"] + .@{foot},
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{gutter}@{child}"] > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > :first-child,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{divider}:not(.@{list}) > :not(:first-child),
+            .@{gap}@{child}_@{j}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :not(.@{head}):not(.@{body}):not(.@{foot}),
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list}[class*="@{back}"] > * > :first-child {
+                padding-top: @j*1rem !important;
+            }
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{body},
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{foot},
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > .@{head},
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{head}[class*="@{back}"],
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{gutter}@{child}"] > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > :last-child,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{divider}:not(.@{list}) > :not(:last-child),
+            .@{gap}@{child}_@{j}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :not(.@{head}):not(.@{body}):not(.@{foot}),
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list}[class*="@{back}"] > * > :last-child {
+                padding-bottom: @j*1rem !important;
+            }
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{foot},
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list}[class*="@{back}"] > * > :first-child,
+            .@{gap}@{child}_@{j}.@{row}_@{i}:not(.@{list}) > .@{foot}[class*="@{back}"] + .@{foot},
+            .@{gap}@{child}_@{j}.@{row}_@{i}[class*="@{gutter}@{child}"]:not(.@{list}) > *,
+            .@{gap}@{child}_@{j}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :first-child,
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{divider}:not(.@{list}) > :not(:first-child),
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list}[class*="@{back}"] > :first-child > *,
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list}.@{divider} > :not(:first-child) > * {
+                padding-left: @j*1rem !important;
+            }
+            .@{gap}@{child}_@{j}.@{col}_@{i} > .@{head},
+            .@{gap}@{child}_@{j}.@{col}_@{i}[class*="@{back}"]:not(.@{list}) > *,
+            .@{gap}@{child}_@{j}.@{col}_@{i}.@{list}[class*="@{back}"] > * > :last-child,
+            .@{gap}@{child}_@{j}.@{row}_@{i}[class*="@{gutter}@{child}"]:not(.@{list}) > *,
+            .@{gap}@{child}_@{j}.@{row}_@{i}[class*="@{back}"]:not(.@{list}) > :last-child,
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{divider}:not(.@{list}) > :not(:last-child),
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list}[class*="@{back}"] > :last-child > *,
+            .@{gap}@{child}_@{j}.@{row}_@{i}.@{list}.@{divider} > :not(:last-child) > * {
+                padding-right: @j*1rem !important;
+            }
+            .for-gap-media-toggle-to(@k, (@j + 1));
+        }
+        [class*="@{gap}@{child}"].@{col}_@{i} > .@{foot} {
+            padding-top: 0 !important;
+        }
+        [class*="@{gap}@{child}"].@{col}_@{i} > .@{head} {
+            padding-bottom: 0 !important;
+        }
+        [class*="@{gap}@{child}"].@{row}_@{i} > .@{foot} {
+            padding-left: 0 !important;
+        }
+        [class*="@{gap}@{child}"].@{row}_@{i} > .@{head} {
+            padding-right: 0 !important;
+        }
+
+        /* Adaptive Gutter
+         ***************************************/
+        .@{gutter}@{child}.@{col}_@{i} > :last-child:not(:only-child),
+        .@{gutter}@{child}.@{col}_@{i} > :not(:only-child):not(:first-child):not(:last-child),
+        .@{gutter}@{child}_1.@{col}_@{i} > :last-child:not(:only-child),
+        .@{gutter}@{child}_1.@{col}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+            margin-top: .5rem !important;
+        }
+        .@{gutter}@{child}.@{col}_@{i} > :first-child:not(:only-child),
+        .@{gutter}@{child}.@{col}_@{i} > :not(:only-child):not(:first-child):not(:last-child),
+        .@{gutter}@{child}_1.@{col}_@{i} > :first-child:not(:only-child),
+        .@{gutter}@{child}_1.@{col}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+            margin-bottom: .5rem !important;
+        }
+        .@{gutter}@{child}.@{row}_@{i} > :last-child:not(:only-child),
+        .@{gutter}@{child}.@{row}_@{i} > :not(:only-child):not(:first-child):not(:last-child),
+        .@{gutter}@{child}_1.@{row}_@{i} > :last-child:not(:only-child),
+        .@{gutter}@{child}_1.@{row}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+            margin-left: .5rem !important;
+        }
+        .@{gutter}@{child}.@{row}_@{i} > :first-child:not(:only-child),
+        .@{gutter}@{child}.@{row}_@{i} > :not(:only-child):not(:first-child):not(:last-child),
+        .@{gutter}@{child}_1.@{row}_@{i} > :first-child:not(:only-child),
+        .@{gutter}@{child}_1.@{row}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+            margin-right: .5rem !important;
+        }
+        .@{gutter}@{child}.@{row}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}.@{col}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}.@{col}_@{i}[class*="@{back}"] > :first-child:not(:only-child),
+        .@{gutter}@{child}_1.@{row}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}_1.@{col}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}_1.@{col}_@{i}[class*="@{back}"] > :first-child:not(:only-child) {
+            margin-top: 1rem !important;
+        }
+        .@{gutter}@{child}.@{row}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}.@{col}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}.@{col}_@{i}[class*="@{back}"] > :last-child:not(:only-child),
+        .@{gutter}@{child}_1.@{row}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}_1.@{col}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}_1.@{col}_@{i}[class*="@{back}"] > :last-child:not(:only-child) {
+            margin-bottom: 1rem !important;
+        }
+        .@{gutter}@{child}.@{col}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}.@{row}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}.@{row}_@{i}[class*="@{back}"] > :first-child:not(:only-child),
+        .@{gutter}@{child}_1.@{col}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}_1.@{row}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}_1.@{row}_@{i}[class*="@{back}"] > :first-child:not(:only-child) {
+            margin-left: 1rem !important;
+        }
+        .@{gutter}@{child}.@{col}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}.@{row}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}.@{row}_@{i}[class*="@{back}"] > :last-child:not(:only-child),
+        .@{gutter}@{child}_1.@{col}_@{i}[class*="@{back}"] > *,
+        .@{gutter}@{child}_1.@{row}_@{i}[class*="@{back}"] > :only-child,
+        .@{gutter}@{child}_1.@{row}_@{i}[class*="@{back}"] > :last-child:not(:only-child) {
+            margin-right: 1rem !important;
+        }
+
+        /*** Gutter 1-8 ***/
+        .gutter-media-toggle-to(8);
+        .gutter-media-toggle-to(@k, @j: 2) when (@j =< @k) {
+            .@{gutter}@{child}_@{j}.@{col}_@{i} > :last-child:not(:only-child),
+            .@{gutter}@{child}_@{j}.@{col}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+                margin-top: @j*.5rem !important;
+            }
+            .@{gutter}@{child}_@{j}.@{col}_@{i} > :first-child:not(:only-child),
+            .@{gutter}@{child}_@{j}.@{col}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+                margin-bottom: @j*.5rem !important;
+            }
+            .@{gutter}@{child}_@{j}.@{row}_@{i} > :last-child:not(:only-child),
+            .@{gutter}@{child}_@{j}.@{row}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+                margin-left: @j*.5rem !important;
+            }
+            .@{gutter}@{child}_@{j}.@{row}_@{i} > :first-child:not(:only-child),
+            .@{gutter}@{child}_@{j}.@{row}_@{i} > :not(:only-child):not(:first-child):not(:last-child) {
+                margin-right: @j*.5rem !important;
+            }
+            .@{gutter}@{child}_@{j}.@{row}_@{i}[class*="@{back}"] > *,
+            .@{gutter}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > :only-child,
+            .@{gutter}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > :first-child:not(:only-child) {
+                margin-top: @j*1rem !important;
+            }
+            .@{gutter}@{child}_@{j}.@{row}_@{i}[class*="@{back}"] > *,
+            .@{gutter}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > :only-child,
+            .@{gutter}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > :last-child:not(:only-child) {
+                margin-bottom: @j*1rem !important;
+            }
+            .@{gutter}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > *,
+            .@{gutter}@{child}_@{j}.@{row}_@{i}[class*="@{back}"] > :only-child,
+            .@{gutter}@{child}_@{j}.@{row}_@{i}[class*="@{back}"] > :first-child:not(:only-child) {
+                margin-left: @j*1rem !important;
+            }
+            .@{gutter}@{child}_@{j}.@{col}_@{i}[class*="@{back}"] > *,
+            .@{gutter}@{child}_@{j}.@{row}_@{i}[class*="@{back}"] > :only-child,
+            .@{gutter}@{child}_@{j}.@{row}_@{i}[class*="@{back}"] > :last-child:not(:only-child) {
+                margin-right: @j*1rem !important;
+            }
+            .gutter-media-toggle-to(@k, (@j + 1));
+        }
+
+        /*** Null ***/
+        [class*="@{gutter}@{child}"].@{col}_@{i}:not([class*="@{back}"]):not(.@{divider}) > [hidden]:first-child + :not(:only-child):not(:first-child):not(:last-child) {
+            margin-top: 0 !important;
+        }
+        [class*="@{gutter}@{child}"].@{row}_@{i}:not([class*="@{back}"]):not(.@{divider}) > [hidden]:first-child + :not(:only-child):not(:first-child):not(:last-child) {
+            margin-left: 0 !important;
+        }
+    }
+    .for-media-trigger(@n, (@i - 1));
+}

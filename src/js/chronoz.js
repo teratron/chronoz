@@ -20,7 +20,7 @@ $(document).ready(function () {
                         break;
                 }
             });
-            if (i == j) id.addClass('show');
+            if (i === j) id.addClass('show');
         }
     });
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
                     break;
             }
         });
-        if (i == j) {
+        if (i === j) {
             id.addClass('show');
             $(body).addClass('noscroll');
         }
